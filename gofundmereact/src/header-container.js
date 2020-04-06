@@ -33,7 +33,6 @@ function HeaderContainer(props) {
                 </bs.Nav>
             </bs.Navbar.Collapse>
         </bs.Navbar>
-
     )
 }
 

@@ -15,7 +15,6 @@ function Home(props) {
             </bs.Row>
         </bs.Container>
     )
-
 }
 export default Home
 

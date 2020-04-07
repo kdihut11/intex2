@@ -16,11 +16,11 @@ function App(props) {
     <Router>
       <bs.Container fluid className="p-0 min-vh-100 d-flex flex-column">
         <bs.Row noGutters className="flex-grow-0 flex-shrink-0 shadow-sm">
-          <bs.Col className="px-3 py-2" style={{backgroundColor: "#6c809e" }}>
+          <bs.Col className="px-3 py-2" style={{backgroundColor: "#73A59A" }}>
             <HeaderContainer />
           </bs.Col>
         </bs.Row>
-        <bs.Row noGutters className="flex-grow-1" style={{backgroundColor: "#f7eac6"}}>
+        <bs.Row noGutters className="flex-grow-1" style={{backgroundColor: "#D5E6E2"}}>
           <bs.Col md="2" className="ps-3 py-4 shadow" style={{}}>
             <LeftContainer />
           </bs.Col>
@@ -45,7 +45,7 @@ function App(props) {
           </bs.Col>
         </bs.Row>
         <bs.Row noGutters className="flex-grow-0 flex-shrink-0">
-          <bs.Col className="px-3 py-2" style={{ backgroundColor: "#6c809e" }}>
+          <bs.Col className="px-3 py-2" style={{ backgroundColor: "#73A59A" }}>
             <FooterContainer />
           </bs.Col>
         </bs.Row>

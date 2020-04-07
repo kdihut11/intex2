@@ -9,7 +9,7 @@ import Image from 'react-bootstrap/Image'
 
 function HeaderContainer(props) {
     return (
-        <bs.Navbar variant="light" expand="lg" >
+        <bs.Navbar variant="dark" expand="lg" >
             <Link to="/">
                 <bs.Navbar.Brand className="nav-brand">
                     <Image alt="Site Icon" src={SiteIcon} width="180" height="60" rounded href="#home" />
@@ -26,9 +26,9 @@ function HeaderContainer(props) {
                 </bs.Nav>
                 <bs.Nav style={{color:"#f8f9fb"}}>
                     <bs.NavDropdown style={{color:"#f8f9fb"}} title="Welcome, Guest" alignRight >
-                        <bs.NavDropdown.Item style={{color:"#f8f9fb"}}>My Account</bs.NavDropdown.Item>
+                        <bs.NavDropdown.Item >My Account</bs.NavDropdown.Item>
                         <bs.NavDropdown.Divider />
-                        <bs.NavDropdown.Item href="#action/3.4" style={{color:"#f8f9fb"}}>Logout</bs.NavDropdown.Item>
+                        <bs.NavDropdown.Item href="#action/3.4">Logout</bs.NavDropdown.Item>
                     </bs.NavDropdown>
                 </bs.Nav>
             </bs.Navbar.Collapse>

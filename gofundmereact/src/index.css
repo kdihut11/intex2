@@ -20,7 +20,7 @@
   height: 5px;
   content: "";
   position: absolute;
-  background-color: #031D44;
+  background-color: rgb(146, 149, 154);
 }
 
 .nav-link-ltr::before {

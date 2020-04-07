@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactDom from "react-dom";
+import * as b from "bootstrap";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import App from "./App.js";
@@ -48,7 +48,7 @@ function Welcome(props) {
 
   
 
-  if (!name || !FName) {
+  if (!name && !FName) {
     return (
       <div>
         <div style={sectionStyle}>
@@ -64,8 +64,7 @@ function Welcome(props) {
                 alt=""
                 src={goFundMe}
                 width="300"
-                className="p-5"
-                className="ml-10 p-2"
+                
               />
               <h1 className="p-2">Welcome to Go Fund Me Analytics!</h1>{" "}
               <br></br>
@@ -78,7 +77,7 @@ function Welcome(props) {
                   <td className='p-2'>
                     <GoogleLogin
                       clientId="264235252416-qu7uoto6sb62kc8hb7fffrg387o26e7e.apps.googleusercontent.com"
-                      buttonText="Login"
+                      buttonText="Login with Google"
                       onSuccess={responseGoogle}
                       onFailure={responseGoogle}
                       cookiePolicy={"single_host_origin"}
@@ -92,7 +91,7 @@ function Welcome(props) {
                       fields="name,email,picture"
                       callback={responseFacebook}
                     />
-                  </td>
+                  </td> 
                 </tr>
               </table>
             </div>

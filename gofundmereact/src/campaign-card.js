@@ -1,25 +1,33 @@
 import React from 'react';
 import {Card,Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import AppContext from "./context.js";
 
 export default function ProductCard(props){ 
-    const context = React.useContext(AppContext);
-
+    const item = props.item
 
         return (
-            <Card variant = "top" className="my-2">
-                <Card.Body>
-                        
-                            <Link to={'/CampaignDetails/' + props.item.id} 
-                            className="float-right">
-                                <Button>Details</Button>
-                                </Link>
-                            
-                        
-                    <Card.Img src={`${process.env.PUBLIC_URL}/media/product_images/${props.item.filename}-1.png`}/>
-                    <Card.Title>{props.item.name}</Card.Title>
-                    <Card.Text>${props.item.price}</Card.Text>
+            <Card className="my-2 p-0 shadow" 
+                    style={{
+                        height:"300px",
+                        width:"200px"
+
+                    }}>
+                <Card.Body className="m-0 p-0">                                          
+                    <Card.Img variant="top" className="m-0 p-0" src={item.campaign_image_url}
+                                style={{
+                                    maxHeight:"150px",
+                                    minHeight:"150px",
+                                    height:"100%",
+                                }}/>
+                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Text>{item.donators}</Card.Text>
+                    <Link to={'/CampaignDetails/' + item.campaign_id} className=""
+                            style={{
+                                position:"absolute",
+
+                            }}>
+                        <Button variant="outline-secondary">Details</Button>
+                    </Link>
                 </Card.Body>
             </Card>
         );

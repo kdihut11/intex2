@@ -13,22 +13,22 @@ function HeaderContainer(props) {
             <Link to="/">
                 <bs.Navbar.Brand className="nav-brand">
                     <Image alt="Site Icon" src={SiteIcon} width="180" height="60" rounded href="#home" />
-                    <div className="nav-brand" style={{textAlign:'center'}}>INTEX</div>
+                    <div className="nav-brand" style={{textAlign:'center', color:"#f8f9fb"}}>INTEX</div>
                 </bs.Navbar.Brand>
             </Link>
             <bs.Navbar.Toggle aria-controls="basic-navbar-nav" />
             <bs.Navbar.Collapse id="basic-navbar-nav">
                 <bs.Nav className="mr-auto">
-                    <Link to="/" className="nav-link nav-link-ltr">Home</Link>
-                    <Link to="/about" className="nav-link nav-link-ltr">About</Link>
-                    <Link to="/help" className="nav-link nav-link-ltr">Help</Link>
-                    <Link to="/predict" className="nav-link nav-link-ltr">Predict</Link>
+                    <Link to="/" className="nav-link nav-link-ltr" style={{color:"#f8f9fb"}}>Home</Link>
+                    <Link to="/about" className="nav-link nav-link-ltr" style={{color:"#f8f9fb"}}>About</Link>
+                    <Link to="/help" className="nav-link nav-link-ltr" style={{color:"#f8f9fb"}}>Help</Link>
+                    <Link to="/predict" className="nav-link nav-link-ltr" style={{color:"#f8f9fb"}}>Predict</Link>
                 </bs.Nav>
-                <bs.Nav>
-                    <bs.NavDropdown title="Welcome, Guest" alignRight >
-                        <bs.NavDropdown.Item>My Account</bs.NavDropdown.Item>
+                <bs.Nav style={{color:"#f8f9fb"}}>
+                    <bs.NavDropdown style={{color:"#f8f9fb"}} title="Welcome, Guest" alignRight >
+                        <bs.NavDropdown.Item style={{color:"#f8f9fb"}}>My Account</bs.NavDropdown.Item>
                         <bs.NavDropdown.Divider />
-                        <bs.NavDropdown.Item href="#action/3.4">Logout</bs.NavDropdown.Item>
+                        <bs.NavDropdown.Item href="#action/3.4" style={{color:"#f8f9fb"}}>Logout</bs.NavDropdown.Item>
                     </bs.NavDropdown>
                 </bs.Nav>
             </bs.Navbar.Collapse>

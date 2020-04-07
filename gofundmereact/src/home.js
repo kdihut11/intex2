@@ -10,7 +10,7 @@ function Home(props) {
         <bs.Container fluid className="p-0">
             <bs.Row md="0">
                 <p>
-                    All the campaigns will show up here
+                    All the campaigns will show up here.. Testing commits
                 </p>
             </bs.Row>
         </bs.Container>

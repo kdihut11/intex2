@@ -25,11 +25,7 @@ function HeaderContainer(props) {
                     <Link to="/predict" className="nav-link nav-link-ltr">Predict</Link>
                 </bs.Nav>
                 <bs.Nav>
-                    <bs.Form inline>
-                        <bs.FormControl type="text" placeholder="Search Campaigns" className="mr-sm-2" />
-                        <bs.Button variant="outline-dark">Search</bs.Button>
-                    </bs.Form>
-                    <bs.NavDropdown title="Welcome, Guest" alignRight>
+                    <bs.NavDropdown title="Welcome, Guest" alignRight >
                         <bs.NavDropdown.Item>My Account</bs.NavDropdown.Item>
                         <bs.NavDropdown.Divider />
                         <bs.NavDropdown.Item href="#action/3.4">Logout</bs.NavDropdown.Item>

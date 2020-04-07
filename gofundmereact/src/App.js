@@ -8,6 +8,7 @@ import FooterContainer from './footer-container.js';
 import Home from './home';
 import About from './about';
 import Help from './help';
+import SearchBar from './search-bar.js';
 import './index.css'
 import Predict from './predict';
 
@@ -19,6 +20,13 @@ function App(props) {
           <bs.Col className="px-3 py-2" style={{backgroundColor: "#73A59A" }}>
             <HeaderContainer />
           </bs.Col>
+        </bs.Row>
+        <bs.Row noGutters className="flex-grow-0 flex-shrink-0 shadow-sm">
+        <bs.Col md='2' style={{backgroundColor: "#73A59A" }}></bs.Col>
+          <bs.Col md='8' className="px-3 py-2" style={{backgroundColor: "#73A59A" }}>
+            <SearchBar />
+          </bs.Col>
+          <bs.Col md='2' style={{backgroundColor: "#73A59A" }}></bs.Col>
         </bs.Row>
         <bs.Row noGutters className="flex-grow-1" style={{backgroundColor: "#D5E6E2"}}>
           <bs.Col md="2" className="ps-3 py-4 shadow" style={{}}>

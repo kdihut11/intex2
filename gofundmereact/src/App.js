@@ -8,7 +8,7 @@ import FooterContainer from './footer-container.js';
 import Home from './home';
 import About from './about';
 import Help from './help';
-import SearchBar from './search-bar.js';
+import CampaignDetails from './campaign-details.js';
 import './index.css'
 import Predict from './predict';
 import { NavLink } from 'react-router-dom'
@@ -39,12 +39,16 @@ function App(props) {
                 <Route path="/help">
                   <Help />
                 </Route>
+                <Route path="/CampaignDetails/">
+                  <CampaignDetails/>
+                </Route>
                 <Route path="/predict">
                   <Predict />
                 </Route>
                 <Route path="/">
                   <Home />
                 </Route>
+
               </Switch>
               </bs.Col>
             </bs.Row>

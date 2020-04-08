@@ -2,7 +2,7 @@ import React from 'react';
 import {Card,Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
-export default function ProductCard(props){ 
+export default function CampaignCard(props){ 
     const item = props.item
     let title = item.title
     let image_url = item.campaign_image_url
@@ -43,8 +43,7 @@ export default function ProductCard(props){
                         </Card.Footer>
                     </Link> */}
                     <Card.Text className="pt-1" style={{textAlign:"center", color:"#001540"}}>
-                        <Link><small className="text-muted"><b>More Details</b></small></Link>
-                    </Card.Text>
+                    <Link to={'/CampaignDetails/' + item.campaign_id}><small className="text-muted"><b>More Details</b></small></Link>                    </Card.Text>
                 </Card.Body>
             </Card>
         );

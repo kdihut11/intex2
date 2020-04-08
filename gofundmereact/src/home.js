@@ -16,7 +16,7 @@ function Home(props) {
                 item.campaign_id == match.params.campaign_id
         )
     }
- 
+ console.log(match)
   return (
 
       <bs.Container fluid className="p-0">

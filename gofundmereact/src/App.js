@@ -10,6 +10,7 @@ import Help from './help';
 import SearchBar from './search-bar.js'
 import './index.css'
 import Predict from './predict';
+import Results from './results';
 
 function App(props) {
   return (
@@ -28,12 +29,6 @@ function App(props) {
 
             <bs.Row>
               <bs.Col>
-                <SearchBar/>
-              </bs.Col>
-            </bs.Row>
-
-            <bs.Row>
-              <bs.Col>
                 <Switch>
                 <Route path="/about">
                   <About />
@@ -44,6 +39,20 @@ function App(props) {
                 <Route path="/predict">
                   <Predict />
                 </Route>
+
+                <Route path="/search">
+                  <bs.Row>
+                    <bs.Col>
+                    <SearchBar />
+                    </bs.Col>
+                  </bs.Row>
+                  <bs.Row>
+                    <bs.Col>
+                      <Results/>
+                    </bs.Col>
+                  </bs.Row>
+                </Route>
+                
                 <Route path="/">
                   <Home />
                 </Route>

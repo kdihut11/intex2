@@ -28,11 +28,7 @@ function App(props) {
           </bs.Col>
           <bs.Col md="8" className="px-5" style={{backgroundColor: "#e9e9e9"}}>
 
-            <bs.Row>
-              <bs.Col>
-                  <SearchBar />
-              </bs.Col>
-            </bs.Row>
+            
 
             <bs.Row>
               <bs.Col>

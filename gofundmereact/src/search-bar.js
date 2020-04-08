@@ -1,32 +1,52 @@
-import React from "react";
-import * as bs from "react-bootstrap";
-import { Link } from "react-router-dom";
-import SiteIcon from "./media/gofundme_logo.png";
-import Image from "react-bootstrap/Image";
+// import React from "react";
+// import * as bs from "react-bootstrap";
+// import { Link } from "react-router-dom";
+// import SiteIcon from "./media/gofundme_logo.png";
+// import Image from "react-bootstrap/Image";
+// import Home from "./home.js"
+// import AppContext from "./context.js";
 
-//import AppContext from './context'
 
-function SearchBar(props) {
-  return (
-    <bs.Container className='mb-3'>
-      <bs.Form controlId="formBasicPassword" inline >
-        <bs.Form.Control style={{width:'85%', height:'50px'}} type="text" placeholder="Search by category, title, country..." className="mr-sm-2"/>
-        <bs.Button style={{ width:'100px', height:'50px'}} variant="secondary" type="submit">
-        Search
-      </bs.Button>
-      </bs.Form>
+// //import AppContext from './context'
+// const context = React.useContext(AppContext);
+// let campaigns = Object.values(context.campaigns);
 
-     
-      {/* <bs.Nav >
-                    
-                    <bs.Form fluid>
-                        <bs.FormControl type="text" placeholder="Search Campaigns" className="mr-sm-2"/>
-                        <bs.Button variant="outline-dark">Search</bs.Button>
-                    </bs.Form>
-                    
-                </bs.Nav> */}
-    </bs.Container>
-  );
-}
+// class SearchBar extends React.Component {
+    
 
-export default SearchBar;
+
+//     constructor(){
+//         super();
+//         this.state = {
+//             search: ''
+//         };
+//     }
+
+//     updateSearch(event) {
+//         this.setState({search: event.target.value.substr(0,20)});
+//         console.log(this)
+//     }
+  
+    
+    
+  
+//     render() {
+//         // let campaigns = this.props.campaigns;
+//     return (
+//     <bs.Container className='mb-3'>
+//       <bs.Form controlId="formBasicPassword" inline >
+//         <bs.Form.Control style={{width:'100%', height:'50px'}} type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} placeholder="Search by category, title, country..." className="mr-sm-2">
+//         {/* {campaigns.map((item) => {
+//             return <Home item={item}/>
+//         } )} */}
+//         </bs.Form.Control>
+//         {/* <bs.Button style={{ width:'100px', height:'50px'}} variant="secondary"  type="submit">
+//         Search
+//       </bs.Button> */}
+//       </bs.Form>
+//     </bs.Container>
+//   );
+// }
+// }
+
+// export default SearchBar;

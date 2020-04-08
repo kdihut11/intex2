@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api.models import Campaign, Donation, Update
+from api.models import Campaign, Donation, Score
 
 # Serializers define the API representation.
 class CampaignSerializer(serializers.ModelSerializer):
@@ -17,7 +17,7 @@ class DonationSerializer(serializers.ModelSerializer):
         model = Donation
         fields = ['donation_id','campaign_id','total_donated','num_donors']
 
-class UpdateSerializer(serializers.ModelSerializer):
+class ScoreSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Update
-        fields = ['update_id','campaign_id']
+        model = Score
+        fields = ['campaign_id','score','rating']

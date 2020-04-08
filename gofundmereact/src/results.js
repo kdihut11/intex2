@@ -16,22 +16,16 @@ function Results(props) {
   let lastName = context.lastName
   //const match = useRouteMatch('/campaign/:campaign_id')
 
-<<<<<<< HEAD
   console.log( title, description,firstName,lastName, isCharity, campaignHearts, numDonors)
-=======
   const sortedDateCampaigns = campaigns.slice().sort((a, b) => a.launch_date - b.launch_date).reverse()
   const sortedCurrentAmtCampaigns = campaigns.slice().sort((a,b) => b.current_amount - a.current_amount)
   const sortedGoalCampaigns = campaigns.slice().sort((a,b) => b.goal - a.goal)
 
-  console.log('currentAmtSorted',sortedCurrentAmtCampaigns)
-  console.log('dateSorted',sortedDateCampaigns)
-  console.log('goalSorted', sortedGoalCampaigns)
+  // console.log('currentAmtSorted',sortedCurrentAmtCampaigns)
+  // console.log('dateSorted',sortedDateCampaigns)
+  // console.log('goalSorted', sortedGoalCampaigns)
 
-  console.log('searchParams',searchParams)
   
-  const match = useRouteMatch('/campaign/:campaign_id')
->>>>>>> f8475bcad309ac6e625e3b8ea2a82915b14be5e7
-
   if(title || description || firstName || lastName || isCharity || campaignHearts > -2  || numDonors > -2 )
   {
    

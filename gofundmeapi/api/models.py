@@ -7,6 +7,7 @@ class Campaign(models.Model):
     campaign_id = models.DecimalField(max_digits=11, decimal_places=0)
     category = models.TextField()
     current_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    goal = models.DecimalField(max_digits=10, decimal_places=0)
     currency_code = models.TextField()
     donators = models.DecimalField(max_digits=11, decimal_places=0)
     days_active = models.DecimalField(max_digits=11, decimal_places=0)
@@ -36,6 +37,8 @@ class Donation(models.Model):
     num_donors = models.DecimalField(max_digits=11, decimal_places=0, default=0)
 
 
-class Update(models.Model):
-    update_id = models.DecimalField(max_digits=11, decimal_places=0)
+class Score(models.Model):
     campaign_id = models.DecimalField(max_digits=11, decimal_places=0)
+    score = models.DecimalField(max_digits=5, decimal_places=0)
+    rating = models.TextField()
+    auto_fb_post = models.BooleanField(default=False)

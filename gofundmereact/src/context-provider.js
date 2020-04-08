@@ -16,6 +16,7 @@ export default class AppProvider extends React.Component {
       updateDescription: this.updateDescription,
       updateFirstName: this.updateFirstName,
       updateLastName: this.updateLastName,
+      setReadyToMap: this.setReadyToMap,
 
     };
     this.state = {
@@ -28,7 +29,16 @@ export default class AppProvider extends React.Component {
       description:'',
       firstName:'',
       lastName:'',
+      readyToMap:false,
     }
+  }
+
+  setReadyToMapTrue = () => {
+    this.setState({readyToMap: true});
+  }
+
+  setReadyToMapFalse = () => {
+    this.setState({readyToMap: false});
   }
 
   updateCampaignHearts = (value) => {

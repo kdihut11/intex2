@@ -7,4 +7,6 @@ urlpatterns = [
     path('campaign/<int:pk>/', views.CampaignDetail.as_view()),
     path('donation/', views.DonationList.as_view()),
     path('donation/<int:pk>/', views.DonationDetail.as_view()),
+    path('score/',views.ScoreList.as_view()),
+    path('score/<int:pk>/', views.ScoreDetail.as_view()),
 ]

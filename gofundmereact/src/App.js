@@ -52,7 +52,7 @@ function App(props) {
                     </bs.Col>
                   </bs.Row>
                 </Route>
-                
+
                 <Route path="/">
                   <Home />
                 </Route>

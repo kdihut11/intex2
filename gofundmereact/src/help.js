@@ -5,6 +5,7 @@ import * as bs from 'react-bootstrap';
 
 function Help(props) {
     return (
+        
         <bs.Container fluid className="p-4">
             <bs.Row noGutters>
                 <bs.Col>

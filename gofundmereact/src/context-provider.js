@@ -2,33 +2,76 @@ import React from "react";
 import axios from "axios";
 import AppContext from "./context";
 import Welcome from "./Welcome.js";
-import produce from 'immer'
 
 /** The context provider for our app */
 export default class AppProvider extends React.Component {
   constructor(props) {
     super(props);
     this.actions = {
-      updateSearch: this.updateSearch,
+      updateCampaignHearts: this.updateCampaignHearts,
+      updateNumDonors: this.updateNumDonors,
+      updateIsCharity: this.updateIsCharity,
+      updateIsNotCharity: this.updateIsNotCharity,
+      updateTitle: this.updateTitle,
+      updateDescription: this.updateDescription,
+      updateFirstName: this.updateFirstName,
+      updateLastName: this.updateLastName,
+
     };
     this.state = {
       campaigns: [],
       donations: [],
-      search: '',
+      campaignHearts:-1,
+      numDonors:-1,
+      isCharity:'',
+      title:'',
+      description:'',
+      firstName:'',
+      lastName:'',
     }
   }
 
-  // updateSearch = (value) =>
-  //   {
-  //       this.setState(state => produce(state, draft => {
-  //           draft.search = value
-  //           console.log(draft.search)
-  //       }))
-  //   }
+  updateCampaignHearts = (value) => {
+    value = parseInt(value)
+    this.setState({campaignHearts: value});
+    //console.log(this.state.campaignHearts)
+  }
 
-  updateSearch = (value) => {
-    this.setState({search: value});
-    console.log(this.state.search)
+
+  updateNumDonors = (value) => {
+    value = parseInt(value)
+    this.setState({numDonors: value});
+    //console.log(this.state.numDonors)
+  }
+
+  updateIsCharity = () => {
+    this.setState({isCharity:true});
+    //console.log(this.state.isCharity)
+  }
+
+  updateIsNotCharity = () => {
+    this.setState({isCharity:false});
+    //console.log(this.state.isCharity)
+  }
+
+  updateTitle = (value) => {
+    this.setState({title: value});
+    //console.log(this.state.title)
+  }
+
+  updateDescription = (value) => {
+    this.setState({description: value});
+    //console.log(this.state.description)
+  }
+
+  updateFirstName = (value) => {
+    this.setState({firstName: value});
+    //console.log(this.state.firstName)
+  }
+
+  updateLastName = (value) => {
+    this.setState({lastName: value});
+    //console.log(this.state.lastName)
   }
 
   render() {

@@ -5,42 +5,145 @@ import CampaignCard from "./campaign-card.js";
 import AppContext from "./context.js";
 
 function Results(props) {
-
   const context = React.useContext(AppContext);
-  let campaigns = Object.values(context.campaigns);
-  let searchParams= context.search
+  let campaigns = context.campaigns
+  let campaignHearts = context.campaignHearts
+  let numDonors = context.numDonors
+  let isCharity = context.isCharity
+  let title = context.title
+  let description = context.description
+  let firstName = context.firstName
+  let lastName = context.lastName
+  //const match = useRouteMatch('/campaign/:campaign_id')
 
-  console.log('searchParams',searchParams)
-  
-  const match = useRouteMatch('/campaign/:campaign_id')
+  console.log( title, description,firstName,lastName, isCharity, campaignHearts, numDonors)
 
-  if(match || searchParams)
+  if(title || description || firstName || lastName || isCharity || campaignHearts > -2  || numDonors > -2 )
   {
-    console.log("search params or math is not undefined")
+   
+    if(title != '')
+        {
+          campaigns = campaigns.filter(item =>
+            {
+                if(item.title.includes(title))
+                  {
+                    return item;
+                  }        
+            }
+          )
+        }
+    if(description != '')
+    {
       campaigns = campaigns.filter(item =>
+        {
+            if(item.description.includes(description))
               {
-                if(item.title.includes(searchParams))
-                {
-                  return item;
-                }
-              }
+                return item;
+              }        
+        }
       )
+    }
+    if(firstName != '')
+    {
+      campaigns = campaigns.filter(item =>
+        {
+            if(item.user_first_name.includes(firstName))
+              {
+                return item;
+              }        
+        }
+      )
+    }
+    if(lastName != '')
+    {
+      campaigns = campaigns.filter(item =>
+        {
+            if(item.user_last_name.includes(lastName))
+              {
+                return item;
+              }        
+        }
+      )
+    }
+    if(isCharity === true)
+    {
+      campaigns = campaigns.filter(item =>
+        {
+            if(item.is_charity === true)
+              {
+                return item;
+              }     
+        }
+      )
+    }
+    if(isCharity === false)
+    {
+      campaigns = campaigns.filter(item =>
+        {
+            if(item.is_charity === false)
+              {
+                return item;
+              }     
+        }
+      )
+    }
+    if(campaignHearts > -1)
+    {
+      campaigns = campaigns.filter(item =>
+        {
+            if(item.campaign_hearts >= campaignHearts)
+              {
+                return item;
+              }        
+        }
+      )
+    }
+    if(numDonors > -1)
+    {
+      campaigns = campaigns.filter(item =>
+        {
+            if(item.donators >= numDonors)
+              {
+                return item;              
+              }        
+        }
+      )
+    }
   }
-  console.log(campaigns)
+  
+  let resultLength = campaigns.length
+  console.log(resultLength)
+  let plural = "campaigns"
+  if (resultLength == 1)
+  {
+    plural = "campaign"
+  }
+
+if (context.readyToMap == true)
+{
+  context.setReadyToMapFalse()
 
   return (
 
-      <bs.Container fluid className="p-0">
-        <div>Search Results: </div>
-      {/* <bs.Row md="0">
-        {campaigns.map((item) => (
-          <bs.Col md="3">
-            <CampaignCard item={item} />
-          </bs.Col>
-        ))}
-      </bs.Row> */}
-    </bs.Container>
- );
+    <bs.Container fluid className="p-0">
+      <div><small><b>Search Results:</b><i> Your search returned {resultLength} {plural} </i></small></div>
+    {/* <bs.Row md="0">
+      {campaigns.map((item) => (
+        <bs.Col md="3">
+          <CampaignCard item={item} />
+        </bs.Col>
+      ))}
+    </bs.Row> */}
+  </bs.Container>
+);
+}
+else
+{
+  return(
+    <div>Enter some search Parameters</div>
+  )
+}
+  
 }
 
 export default Results;

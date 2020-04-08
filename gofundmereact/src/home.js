@@ -9,6 +9,7 @@ function Home(props) {
   const context = React.useContext(AppContext);
   let campaigns = Object.values(context.campaigns);
 
+<<<<<<< HEAD
   console.log(context.campaigns);
 
   const match = useRouteMatch("/category/:campaign_id");
@@ -17,6 +18,30 @@ function Home(props) {
       (item) => item.campaign_id == match.params.campaign_id
     );
   }
+=======
+    const match = useRouteMatch('/category/:campaign_id')
+    if(match)
+    {
+        campaigns = campaigns.filter(item =>
+                item.campaign_id == match.params.campaign_id
+        )
+    }
+    return (
+        <div>
+            <bs.Container fluid className="p-0">
+                <bs.Row md="0"  calssName="mt-2">
+                    { campaigns.map(item =>
+                    <bs.Col md='3' >
+                        <CampaignCard item={item}/>
+                    </bs.Col>
+                    )} 
+                </bs.Row>
+            </bs.Container>
+        </div>
+    )
+}
+export default Home
+>>>>>>> 5116d2b303ed7511f2d5bf0799fb47c113208a30
 
 
   return (

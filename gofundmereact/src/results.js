@@ -10,6 +10,14 @@ function Results(props) {
   let campaigns = Object.values(context.campaigns);
   let searchParams= context.search
 
+  const sortedDateCampaigns = campaigns.slice().sort((a, b) => a.launch_date - b.launch_date).reverse()
+  const sortedCurrentAmtCampaigns = campaigns.slice().sort((a,b) => b.current_amount - a.current_amount)
+  const sortedGoalCampaigns = campaigns.slice().sort((a,b) => b.goal - a.goal)
+
+  console.log('currentAmtSorted',sortedCurrentAmtCampaigns)
+  console.log('dateSorted',sortedDateCampaigns)
+  console.log('goalSorted', sortedGoalCampaigns)
+
   console.log('searchParams',searchParams)
   
   const match = useRouteMatch('/campaign/:campaign_id')

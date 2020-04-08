@@ -33,6 +33,7 @@ def main():
         dbcamp.user_first_name = camp['user_first_name']
         dbcamp.user_last_name = camp['user_last_name']
         dbcamp.goal = camp['goal']
+        print(dbcamp.goal)
 
         if camp['visible_in_search'] == 'TRUE':
             dbcamp.visible_in_search = 'True'
@@ -64,7 +65,7 @@ def main():
 
         dbcamp.charity_name = camp['charity_name']
         num = num + 1
-        dbcamp.save()
+        #dbcamp.save()
 
     print(num)
     print('campaigns saved successfully')

@@ -16,8 +16,8 @@ export default class AppProvider extends React.Component {
       updateDescription: this.updateDescription,
       updateFirstName: this.updateFirstName,
       updateLastName: this.updateLastName,
-      setReadyToMap: this.setReadyToMap,
-
+      setReadyToMapTrue: this.setReadyToMapTrue,
+      setReadyToMapFalse: this.setReadyToMapFalse,
     };
     this.state = {
       campaigns: [],
@@ -34,7 +34,7 @@ export default class AppProvider extends React.Component {
   }
 
   setReadyToMapTrue = () => {
-    this.setState({readyToMap: true});
+    this.setState({readyToMap: true})
   }
 
   setReadyToMapFalse = () => {
@@ -94,11 +94,11 @@ export default class AppProvider extends React.Component {
 
   async componentDidMount() {
     const resp = await axios.get("http://localhost:8000/api/campaign/");
-    const resp2 = await axios.get("http://localhost:8000/api/donation/");
+    const resp2 = await axios.get("http://localhost:8000/api/score/");
     this.setState({
       ...this.state,
       campaigns: resp.data,
-      donations: resp2.data,
+      scores: resp2.data,
     });
   }
 }

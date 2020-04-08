@@ -54,10 +54,7 @@ function App(props) {
             </bs.Row>
            
           </bs.Col>
-          {/* <bs.Col md="2" className="ps-3 py-4 shadow" style={{backgroundColor: "#f8f9fb"}}>
-            <RightContainer />
-          </bs.Col> */}
-        </bs.Row>
+
         <bs.Row noGutters className="flex-grow-0 flex-shrink-0">
           <bs.Col className="px-3 py-2" style={{ backgroundColor: "#14191d" }}>
             <FooterContainer />

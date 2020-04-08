@@ -18,9 +18,9 @@ function Home(props) {
     }
  
   return (
-      
+
     <bs.Container fluid className="p-0">
-      <bs.Container>
+      <bs.Container fluid className="p-0">
         <bs.Row className='pt-5 pb-5'>
         <bs.Form controlId="formBasicPassword" inline>
           <bs.Form.Control
@@ -38,6 +38,7 @@ function Home(props) {
       </bs.Button>
         </bs.Form>
       </bs.Row>
+
       </bs.Container>
       <bs.Row md="0">
         {campaigns.map((item) => (
@@ -47,7 +48,7 @@ function Home(props) {
         ))}
       </bs.Row>
     </bs.Container>
-  );
+ );
 }
 
 export default Home;

@@ -28,7 +28,7 @@ function App(props) {
           </bs.Col>
           <bs.Col md="10" className="px-5" style={{backgroundColor: "#e9e9e9"}}>
 
-           
+            
 
             <bs.Row>
               <bs.Col>
@@ -50,7 +50,7 @@ function App(props) {
             </bs.Row>
            
           </bs.Col>
-
+        </bs.Row>
         <bs.Row noGutters className="flex-grow-0 flex-shrink-0">
           <bs.Col className="px-3 py-2" style={{ backgroundColor: "#14191d" }}>
             <FooterContainer />

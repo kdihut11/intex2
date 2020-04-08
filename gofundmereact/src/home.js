@@ -19,7 +19,6 @@ function Home(props) {
  
   return (
 
-    <bs.Container fluid className="p-0">
       <bs.Container fluid className="p-0">
         <bs.Row className='pt-5 pb-5'>
         <bs.Form controlId="formBasicPassword" inline>
@@ -39,7 +38,6 @@ function Home(props) {
         </bs.Form>
       </bs.Row>
 
-      </bs.Container>
       <bs.Row md="0">
         {campaigns.map((item) => (
           <bs.Col md="3">

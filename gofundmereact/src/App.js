@@ -3,7 +3,6 @@ import * as bs from 'react-bootstrap';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import HeaderContainer from './header-container';
 import LeftContainer from './left-container.js';
-import RightContainer from './right-container';
 import FooterContainer from './footer-container.js';
 import Home from './home';
 import About from './about';
@@ -11,7 +10,7 @@ import Help from './help';
 import CampaignDetails from './campaign-details.js';
 import './index.css'
 import Predict from './predict';
-import { NavLink } from 'react-router-dom'
+import Results from './results';
 
 function App(props) {
   return (
@@ -28,8 +27,6 @@ function App(props) {
           </bs.Col>
           <bs.Col md="10" className="px-5" style={{backgroundColor: "#e9e9e9"}}>
 
-            
-
             <bs.Row>
               <bs.Col>
                 <Switch>
@@ -45,6 +42,20 @@ function App(props) {
                 <Route path="/predict">
                   <Predict />
                 </Route>
+
+                <Route path="/search">
+                  <bs.Row>
+                    <bs.Col>
+                    <SearchBar />
+                    </bs.Col>
+                  </bs.Row>
+                  <bs.Row>
+                    <bs.Col>
+                      <Results/>
+                    </bs.Col>
+                  </bs.Row>
+                </Route>
+                
                 <Route path="/">
                   <Home />
                 </Route>

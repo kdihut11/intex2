@@ -43,7 +43,8 @@ export default function CampaignCard(props){
                         </Card.Footer>
                     </Link> */}
                     <Card.Text className="pt-1" style={{textAlign:"center", color:"#001540"}}>
-                    <Link to={'/CampaignDetails/' + item.campaign_id}><small className="text-muted"><b>More Details</b></small></Link>                    </Card.Text>
+                        <Link to={'/CampaignDetails/' + item.campaign_id}><small className="text-muted"><b>More Details</b></small></Link>
+                    </Card.Text>
                 </Card.Body>
             </Card>
         );

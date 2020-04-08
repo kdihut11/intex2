@@ -1,52 +1,34 @@
-// import React from "react";
-// import * as bs from "react-bootstrap";
-// import { Link } from "react-router-dom";
-// import SiteIcon from "./media/gofundme_logo.png";
-// import Image from "react-bootstrap/Image";
-// import Home from "./home.js"
-// import AppContext from "./context.js";
+import React from "react";
+import * as bs from "react-bootstrap";
+import AppContext from "./context.js";
 
 
-// //import AppContext from './context'
-// const context = React.useContext(AppContext);
-// let campaigns = Object.values(context.campaigns);
+function SearchBar(){
+    const context = React.useContext(AppContext);
 
-// class SearchBar extends React.Component {
-    
+    return (
+    <bs.Container className='mb-3'>
+      <bs.Row className='pt-5 pb-5'>
+        <bs.Form controlId="formBasicPassword" inline>
+          <bs.Form.Control
+            style={{ width: "100%", height: "50px" }}
+            type="text"
+            placeholder="Search by category, title, country..."
+            className="mr-sm-2"
+            value={context.search}
+            onChange={event =>
+            {
+                context.updateSearch(event.target.value)
+            }}
+          >
+          </bs.Form.Control>
+            <bs.Button style={{ width:'100px', height:'50px'}} variant="secondary"  type="submit" >
+                Search
+            </bs.Button>
+        </bs.Form>
+      </bs.Row>
+    </bs.Container>
+  );
+}
 
-
-//     constructor(){
-//         super();
-//         this.state = {
-//             search: ''
-//         };
-//     }
-
-//     updateSearch(event) {
-//         this.setState({search: event.target.value.substr(0,20)});
-//         console.log(this)
-//     }
-  
-    
-    
-  
-//     render() {
-//         // let campaigns = this.props.campaigns;
-//     return (
-//     <bs.Container className='mb-3'>
-//       <bs.Form controlId="formBasicPassword" inline >
-//         <bs.Form.Control style={{width:'100%', height:'50px'}} type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} placeholder="Search by category, title, country..." className="mr-sm-2">
-//         {/* {campaigns.map((item) => {
-//             return <Home item={item}/>
-//         } )} */}
-//         </bs.Form.Control>
-//         {/* <bs.Button style={{ width:'100px', height:'50px'}} variant="secondary"  type="submit">
-//         Search
-//       </bs.Button> */}
-//       </bs.Form>
-//     </bs.Container>
-//   );
-// }
-// }
-
-// export default SearchBar;
+export default SearchBar;

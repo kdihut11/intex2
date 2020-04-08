@@ -4,10 +4,11 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import HeaderContainer from './header-container';
 import LeftContainer from './left-container.js';
 import FooterContainer from './footer-container.js';
+import SearchBar from './search-bar.js';
 import Home from './home';
 import About from './about';
 import Help from './help';
-import SearchBar from './search-bar.js'
+import CampaignDetails from './campaign-details.js';
 import './index.css'
 import Predict from './predict';
 import Results from './results';
@@ -36,6 +37,9 @@ function App(props) {
                 <Route path="/help">
                   <Help />
                 </Route>
+                <Route path="/CampaignDetails/">
+                  <CampaignDetails/>
+                </Route>
                 <Route path="/predict">
                   <Predict />
                 </Route>
@@ -56,6 +60,7 @@ function App(props) {
                 <Route path="/">
                   <Home />
                 </Route>
+
               </Switch>
               </bs.Col>
             </bs.Row>

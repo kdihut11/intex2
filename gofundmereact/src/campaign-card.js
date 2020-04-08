@@ -2,7 +2,7 @@ import React from 'react';
 import {Card,Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
-export default function ProductCard(props){ 
+export default function CampaignCard(props){ 
     const item = props.item
     let title = item.title
     let image_url = item.campaign_image_url

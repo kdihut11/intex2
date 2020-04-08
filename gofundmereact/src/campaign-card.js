@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 export default function ProductCard(props){ 
     const item = props.item
     let title = item.title
+    let image_url = item.campaign_image_url
     
     if (item.title.length > 20)
     {
@@ -12,6 +13,10 @@ export default function ProductCard(props){
         title = title + "..."
     } 
 
+    if (item.campaign_image_url == "")
+    {
+        image_url = "/media/no_image.jpeg"
+    }
 
         return (
             <Card className="my-2 p-0 shadow" 
@@ -21,7 +26,7 @@ export default function ProductCard(props){
 
                     }}>
                 <Card.Body className="m-0 p-0">                                          
-                    <Card.Img variant="top" className="m-0 p-0" src={item.campaign_image_url}
+                    <Card.Img variant="top" className="m-0 p-0" src={image_url} alt="no image"
                                 style={{
                                     maxHeight:"160px",
                                     minHeight:"160px",

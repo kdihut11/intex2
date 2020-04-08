@@ -2,21 +2,33 @@ import React from "react";
 import axios from "axios";
 import AppContext from "./context";
 import Welcome from "./Welcome.js";
+import produce from 'immer'
 
 /** The context provider for our app */
 export default class AppProvider extends React.Component {
   constructor(props) {
     super(props);
-    this.actions = {};
+    this.actions = {
+      updateSearch: this.updateSearch,
+    };
     this.state = {
       campaigns: [],
       donations: [],
       search: '',
-    };
+    }
   }
 
-  updateSearch = event => {
-    this.setState({search: event.target.value.substr(0, 20) });
+  // updateSearch = (value) =>
+  //   {
+  //       this.setState(state => produce(state, draft => {
+  //           draft.search = value
+  //           console.log(draft.search)
+  //       }))
+  //   }
+
+  updateSearch = (value) => {
+    this.setState({search: value});
+    console.log(this.state.search)
   }
 
   render() {

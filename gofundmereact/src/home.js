@@ -8,38 +8,25 @@ function Home(props) {
 
   const context = React.useContext(AppContext);
   let campaigns = Object.values(context.campaigns);
+  let searchParams= context.search
+  console.log('searchParams',searchParams)
 
-    const match = useRouteMatch('/category/:campaign_id')
+    const match = useRouteMatch('/campaign/:campaign_id')
     if(match)
     {
         campaigns = campaigns.filter(item =>
-                item.campaign_id == match.params.campaign_id
+               {
+                item.campaign_id.includes(match.params.campaign_id)
+               }
         )
     }
- 
+
   return (
 
       <bs.Container fluid className="p-0">
-        <bs.Row className='pt-5 pb-5'>
-        <bs.Form controlId="formBasicPassword" inline>
-          <bs.Form.Control
-            style={{ width: "100%", height: "50px" }}
-            type="text"
-            placeholder="Search by category, title, country..."
-            className="mr-sm-2"
-            value={context.search} 
-            onChange={e => {
-                context.updateSearch();
-              }}
-          ></bs.Form.Control>
-          <bs.Button style={{ width:'100px', height:'50px'}} variant="secondary"  type="submit" >
-        Search
-      </bs.Button>
-        </bs.Form>
-      </bs.Row>
 
       <bs.Row md="0">
-        {campaigns.map((item) => (
+        {campaigns.filter((item) => (
           <bs.Col md="3">
             <CampaignCard item={item} />
           </bs.Col>

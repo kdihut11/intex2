@@ -4,30 +4,42 @@ import {Link} from 'react-router-dom';
 
 export default function ProductCard(props){ 
     const item = props.item
+    let title = item.title
+    
+    if (item.title.length > 20)
+    {
+        title = item.title.slice(0,19)
+        title = title + "..."
+    } 
+
 
         return (
             <Card className="my-2 p-0 shadow" 
                     style={{
-                        height:"300px",
+                        height:"285px",
                         width:"200px"
 
                     }}>
                 <Card.Body className="m-0 p-0">                                          
                     <Card.Img variant="top" className="m-0 p-0" src={item.campaign_image_url}
                                 style={{
-                                    maxHeight:"150px",
-                                    minHeight:"150px",
+                                    maxHeight:"160px",
+                                    minHeight:"160px",
                                     height:"100%",
+                                    width:"100%"
                                 }}/>
-                    <Card.Title>{item.title}</Card.Title>
-                    <Card.Text>{item.donators}</Card.Text>
-                    <Link to={'/CampaignDetails/' + item.campaign_id} className=""
-                            style={{
-                                position:"absolute",
 
-                            }}>
-                        <Button variant="outline-secondary">Details</Button>
-                    </Link>
+                    <Card.Subtitle className="mt-2 mx-2 mb-3">{title}</Card.Subtitle>
+                    <Card.Text className="px-2 py-0 m-0" style={{fontSize:"13px"}}><b>Raised:</b> ${item.current_amount}</Card.Text>
+                    <Card.Text className="px-2 py-0 m-0" style={{fontSize:"13px"}}><b>Donators:</b> {item.donators}</Card.Text>
+                    {/* <Link to={'/CampaignDetails/' + item.campaign_id}>
+                        <Card.Footer style={{backgroundColor:"#6c757d",height:"5px",textAlign:"center"}}>
+                            <span style={{color:"#f8f9fb"}}>More Details</span>
+                        </Card.Footer>
+                    </Link> */}
+                    <Card.Text className="pt-1" style={{textAlign:"center", color:"#001540"}}>
+                        <Link><small className="text-muted"><b>More Details</b></small></Link>
+                    </Card.Text>
                 </Card.Body>
             </Card>
         );

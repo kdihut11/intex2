@@ -19,15 +19,17 @@ function Home(props) {
         )
     }
     return (
-        <bs.Container fluid className="p-0">
-            <bs.Row md="0">
-                { campaigns.map(item =>
-                <bs.Col md='3' >
-                    <CampaignCard item={item}/>
-                </bs.Col>
-                )} 
-            </bs.Row>
-        </bs.Container>
+        <div>
+            <bs.Container fluid className="p-0">
+                <bs.Row md="0"  calssName="mt-2">
+                    { campaigns.map(item =>
+                    <bs.Col md='3' >
+                        <CampaignCard item={item}/>
+                    </bs.Col>
+                    )} 
+                </bs.Row>
+            </bs.Container>
+        </div>
     )
 }
 export default Home

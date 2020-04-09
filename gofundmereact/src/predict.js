@@ -67,7 +67,7 @@ const CampaignController = props => {
         >{form => (
             <>
             <h1 className='text-center mt-5'>Predict Your Campaign's Success</h1>
-            <h6 className='text-center mb-5'>Just answer a few questions below to find your campaign's likelihood of success</h6>
+            <h6 className='text-center mb-3'>Just answer a few questions below to find your campaign's likelihood of success</h6>
             <CampaignForm form={form} loading={loading} />
             {hasResults ? 
                 <bs.Container fluid className="p-3">
@@ -153,7 +153,7 @@ const CampaignForm = props => (
                     <ErrorMessage name="currencycode" component="div" className="text-danger" />
 
                     <br></br><Input title="Fundraising Goal:" name="goal" type="number" />
-                    <bs.Button variant="success" type='submit' disabled={props.loading}> {props.loading  && <bs.Spinner animation="grow" variant="light" size="sm" />} Submit </bs.Button>
+                    <bs.Button variant="warning" className="mt-2 mb-1" type='submit' disabled={props.loading}> {props.loading  && <bs.Spinner animation="grow" variant="light" size="sm" />} Submit </bs.Button>
                     <hr></hr>
                 </bs.Col>
                 <bs.Col></bs.Col>

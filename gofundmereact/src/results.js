@@ -210,7 +210,7 @@ function Results(props) {
       <bs.Container fluid className="m-2 mb-3">
           <bs.Row className="mt-2">
             <bs.Col sm={4}>
-              <bs.Button variant="success" block>
+              <bs.Button variant="warning" block>
                   Search
               </bs.Button>
             </bs.Col>
@@ -234,7 +234,7 @@ function Results(props) {
       <bs.Container fluid className="m-2 mb-3">
          <bs.Row>
             <bs.Col sm={4}>
-              <bs.Button className="mb-5" variant="success" block onClick={e=>{setBoolean(true)}}>
+              <bs.Button className="mb-5" variant="warning" block onClick={e=>{setBoolean(true)}}>
                   Search
               </bs.Button>
             </bs.Col>

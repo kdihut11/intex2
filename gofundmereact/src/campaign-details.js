@@ -2,6 +2,7 @@ import React from "react";
 import { useRouteMatch } from "react-router-dom";
 import AppContext from "./context";
 //import { Button } from "react-bootstrap";
+import {Link} from 'react-router-dom';
 
 function CampaignDetails(props) {
   const match = useRouteMatch("/CampaignDetails/:campaignID");
@@ -191,6 +192,7 @@ function CampaignDetails(props) {
             <tbody>
               <tr>
                 <td >
+                <Link to="/search" className="float-left btn btn-primary m-4">Return to Search</Link>
                   <a href={campaign.url} className="btn btn-primary m-4">
                     See on GoFundMe.com
                   </a>

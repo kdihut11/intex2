@@ -23,10 +23,22 @@ function Results(props) {
   let goal = context.goal
 
   const match = useRouteMatch('/search/sort/:label')
+
+  campaigns = campaigns.filter(item=>
+    {
+      let score = scores.find((score) => {
+        return score.campaign_id == item.campaign_id;
+      });
+      item.days_created = score.rating
+      return item;
+    })
+
+  console.log(campaigns)
+
   
   if(title || description || firstName || lastName || isCharity || campaignHearts > -2  || numDonors > -2 || rating || goal)
   {
-    if(rating != '' || rating == 'Select...')
+    if(rating != '')
     {
       scores = scores.filter(item =>
         {
@@ -75,7 +87,6 @@ function Results(props) {
         {
             if(item.description.includes(description))
               {
-                console.log(item.goal)
                 return item;
               } 
               return ''      
@@ -160,33 +171,26 @@ function Results(props) {
   let campaignLength = (campaigns.length)/3
   campaigns = campaigns.slice(0,campaignLength)
 
-  console.log('no sorting',campaigns)
-
   if(match)
   {
     if (match.params.label == 'date')
     {
       campaigns = campaigns.slice().sort((a, b) => a.launch_date - b.launch_date).reverse()
-      console.log('sorted by date',campaigns)
       sortedBy = '(sorted by date: most to least recent)'
     }
     else if(match.params.label == 'currentAmount')
     {
       campaigns = campaigns.slice().sort((a,b) => b.current_amount - a.current_amount)
-      console.log('sorted by amount',campaigns)
       sortedBy = '(sorted by current amount: highest --> lowest)'
     }
     else if(match.params.label == 'goal')
     {
-      console.log('goal sort')
       campaigns = campaigns.slice().sort((a,b) => b.category - a.category)
-      console.log('sorted by goal',campaigns)
       sortedBy = '(sorted by goal: highest --> lowest)'
     }
     else if(match.params.label == 'nosort')
     {
       campaigns = campaigns
-      console.log('no sorting',campaigns)
       sortedBy = '(no sorting)'
     }
     boolean = true

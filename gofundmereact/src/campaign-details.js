@@ -191,7 +191,7 @@ function CampaignDetails(props) {
             <tbody>
               <tr>
                 <td >
-                  <a href={campaign.url} className="btn btn-primary m-4">
+                  <a href={campaign.url} target="blank" className="btn btn-primary m-4">
                     See on GoFundMe.com
                   </a>
                 </td>

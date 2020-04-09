@@ -16,7 +16,7 @@ function SearchBar(){
              <bs.Form.Group  controlId="formGridRating">
                <bs.Form.Label>Rating</bs.Form.Label>
                <bs.Form.Control as="select" value={context.rating} onChange={e=>{context.updateRating(e.target.value)}}>
-               <option value="select">Select...</option>
+               <option value="">Select...</option>
                  <option value="Excellent">Excellent</option>
                  <option value="Good">Good</option>
                  <option value="Poor">Poor</option>

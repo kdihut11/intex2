@@ -45,6 +45,9 @@ function CampaignDetails(props) {
                 <td>
                   <h1 className="ml-4">{campaign.title}</h1>
                 </td>
+                <td>
+                <h2>{context.scores}</h2>
+                </td>
               </tr>
             </tbody>
           </table>

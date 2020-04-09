@@ -30,6 +30,7 @@ export default class AppProvider extends React.Component {
       firstName:'',
       lastName:'',
       readyToMap:false,
+      scores: [],
     }
   }
 

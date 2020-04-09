@@ -18,13 +18,15 @@ function Home(props) {
         </bs.Row>
         <bs.Row md="0" className="mt-3">
           <bs.Col>
-            <h6>Search through current and past GoFundMe campaigns based on their quality</h6>
-            <bs.Button onClick={e=>{history.push('/search')}} variant="success" size="lg" block>Quality Search</bs.Button>
+          <bs.Button onClick={e=>{history.push('/search')}} variant="success" size="lg" block style={{height: '100px', width:'90%'}}>Quality Search</bs.Button><br></br>
+
+            <h6 style={{ width:'90%'}}>Search through current and past GoFundMe campaigns based on their quality</h6>
           </bs.Col>
           
           <bs.Col>
-            <h6>Use our predictor to estimate the success of your campaign based on a few criteria</h6>
-            <bs.Button onClick={e=>{history.push('/predict')}} variant="warning" size="lg" block>Predict Your Campaign</bs.Button>
+          <bs.Button onClick={e=>{history.push('/predict')}} variant="warning" size="lg" block style={{height: '100px', width:'90%'}}>Predict Your Campaign</bs.Button><br></br>
+
+            <h6 style={{ width:'90%'}}>Use our predictor to estimate the success of your campaign based on a few criteria</h6>
           </bs.Col>
         </bs.Row>
     </bs.Container>

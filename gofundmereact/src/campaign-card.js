@@ -33,15 +33,15 @@ export default function CampaignCard(props){
         return (
             <Card className="my-2 p-0 shadow" 
                     style={{
-                        height:"303px",
-                        width:"200px"
+                        height:"310px",
+                        width:"230px"
 
                     }}>
                 <Card.Body className="m-0 p-0">                                          
                     <Card.Img variant="top" className="m-0 p-0" src={image_url} alt="no image"
                                 style={{
-                                    maxHeight:"167px",
-                                    minHeight:"167px",
+                                    maxHeight:"175px",
+                                    minHeight:"175px",
                                     height:"100%",
                                     width:"100%"
                                 }}/>

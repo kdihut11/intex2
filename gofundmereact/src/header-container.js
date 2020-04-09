@@ -9,11 +9,7 @@ import Image from 'react-bootstrap/Image'
 
 function HeaderContainer(props) {
     return (
-<<<<<<< HEAD
-        <bs.Navbar variant="dark" expand="lg" className="color-white">
-=======
         <bs.Navbar  variant="light" expand="lg" >
->>>>>>> 8c758afad2235a2b7b7e89b4cf8517c230324441
             <Link to="/">
                 <bs.Navbar.Brand className="nav-brand">
                     <Image alt="Site Icon" src={SiteIcon} width="180" height="60" rounded href="/home" />

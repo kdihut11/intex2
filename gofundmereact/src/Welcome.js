@@ -4,7 +4,7 @@ import * as b from "bootstrap";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import App from "./App.js";
-import goFundMe from "./goFundMe.png";
+import goFundMe from "./media/goFundMe.png";
 import background from "./background.jpeg";
 
 function Welcome(props) {

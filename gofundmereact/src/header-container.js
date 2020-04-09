@@ -13,7 +13,7 @@ function HeaderContainer(props) {
             <Link to="/">
                 <bs.Navbar.Brand className="nav-brand">
                     <Image alt="Site Icon" src={SiteIcon} width="180" height="60" rounded href="#home" />
-                    <div className="nav-brand" style={{textAlign:'center', color:"#f8f9fb"}}>INTEX</div>
+                    <div className="nav-brand" style={{textAlign:'center', color:"#f8f9fb"}}>ANALYTICS</div>
                 </bs.Navbar.Brand>
             </Link>
             <bs.Navbar.Toggle aria-controls="basic-navbar-nav" />

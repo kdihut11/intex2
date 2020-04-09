@@ -16,7 +16,7 @@ function Results(props) {
   let lastName = context.lastName
   //const match = useRouteMatch('/campaign/:campaign_id')
 
-  console.log( title, description,firstName,lastName, isCharity, campaignHearts, numDonors)
+  //console.log( title, description,firstName,lastName, isCharity, campaignHearts, numDonors)
   const sortedDateCampaigns = campaigns.slice().sort((a, b) => a.launch_date - b.launch_date).reverse()
   const sortedCurrentAmtCampaigns = campaigns.slice().sort((a,b) => b.current_amount - a.current_amount)
   const sortedGoalCampaigns = campaigns.slice().sort((a,b) => b.goal - a.goal)
@@ -46,6 +46,7 @@ function Results(props) {
         {
             if(item.description.includes(description))
               {
+                console.log(item.goal)
                 return item;
               }        
         }
@@ -119,17 +120,18 @@ function Results(props) {
     }
   }
   
+  console.log(context.scores)
+
   let resultLength = campaigns.length
-  console.log(resultLength)
+  //console.log(resultLength)
   let plural = "campaigns"
   if (resultLength == 1)
   {
     plural = "campaign"
   }
-
 if (context.readyToMap == true)
 {
-  context.setReadyToMapFalse()
+  console.log(context.readyToMap)
 
   return (
 
@@ -144,9 +146,11 @@ if (context.readyToMap == true)
     </bs.Row> */}
   </bs.Container>
 );
+
 }
 else
 {
+  console.log('else')
   return(
     <div>Enter some search Parameters</div>
   )

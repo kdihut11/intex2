@@ -14,7 +14,7 @@ function CampaignDetails(props) {
     return campaign.campaign_id == match.params.campaignID;
   });
 
-  console.log(campaign);
+  //console.log(campaign);
 
   if (!campaign) {
     return <h1 className="p-5 align-center">Error - campaign not found</h1>;

@@ -1,9 +1,12 @@
 import React from "react";
 import * as bs from "react-bootstrap";
 import AppContext from "./context.js";
+import SearchContext from "./search-context.js"
 
 function SearchBar(){
     const context = React.useContext(AppContext);
+    const searchContext = React.useContext(SearchContext);
+    console.log(searchContext)    
 
     return (
 
@@ -103,7 +106,7 @@ function SearchBar(){
       </bs.Form.Row>
       <bs.Form.Row className="mt-2">
           <bs.Col sm={4}>
-            <bs.Button type="submit" variant="success" block onClick={e=>{context.setReadyToMapTrue()}}>
+            <bs.Button variant="success" block onClick={e=>{context.setReadyToMapTrue()}}>
                 Search
             </bs.Button>
           </bs.Col>

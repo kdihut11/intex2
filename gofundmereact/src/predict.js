@@ -18,6 +18,7 @@ const CampaignController = props => {
     const [moneyString, setMoneyString] = useState('')
 
     return (
+        
         <Formik
             initialValues={{
                 auto_fb_post_mode: '',
@@ -65,6 +66,8 @@ const CampaignController = props => {
             }}
         >{form => (
             <>
+            <h1 className='text-center mt-5'>Predict Your Campaign's Success</h1>
+            <h6 className='text-center mb-5'>Just answer a few questions below to find your campaign's likelihood of success</h6>
             <CampaignForm form={form} loading={loading} />
             {hasResults ? 
                 <bs.Container fluid className="p-3">

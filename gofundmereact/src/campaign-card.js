@@ -22,7 +22,7 @@ export default function CampaignCard(props){
             <Card className="my-2 p-0 shadow" 
                     style={{
                         height:"285px",
-                        width:"200px"
+                        width:"240px"
 
                     }}>
                 <Card.Body className="m-0 p-0">                                          

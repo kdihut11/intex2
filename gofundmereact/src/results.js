@@ -8,9 +8,6 @@ function Results(props) {
   const context = React.useContext(AppContext);
   let [boolean, setBoolean] = React.useState(false);
   let campaigns = context.campaigns
-  let sortedDateCampaigns = []
-  let sortedCurrentAmtCampaigns = []
-  let sortedGoalCampaigns = []
   let ratingCampaigns = []
   let myGoal = 0
   let sortedBy =''

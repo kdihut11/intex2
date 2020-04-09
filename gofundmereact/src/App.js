@@ -11,7 +11,7 @@ import Help from './help';
 import CampaignDetails from './campaign-details.js';
 import './index.css'
 import Predict from './predict';
-import Results from './results';
+import Results from './results.js';
 
 function App(props) {
   return (

@@ -1,17 +1,14 @@
 import React from "react";
 import * as bs from "react-bootstrap";
 import AppContext from "./context.js";
-import SearchContext from "./search-context.js"
 
 function SearchBar(){
     const context = React.useContext(AppContext);
-    const searchContext = React.useContext(SearchContext);
-    console.log(searchContext)    
 
     return (
 
     <bs.Container className="m-2 mb-3">
-      <h3 className="py-4">Campaign Qualtiy Search</h3>
+      <h3 className="py-4">Campaign Quality Search</h3>
       <bs.Form >
 
         <bs.Form.Row>
@@ -103,14 +100,6 @@ function SearchBar(){
                 </div>
               </bs.Form.Group>
             </bs.Col>
-      </bs.Form.Row>
-      <bs.Form.Row className="mt-2">
-          <bs.Col sm={4}>
-            <bs.Button variant="success" block onClick={e=>{context.setReadyToMapTrue()}}>
-                Search
-            </bs.Button>
-          </bs.Col>
-          <bs.Col sm={8}/>
       </bs.Form.Row>
       </bs.Form>
     </bs.Container>

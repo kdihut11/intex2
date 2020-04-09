@@ -6,6 +6,7 @@ import AppContext from "./context.js";
 
 function Results(props) {
   const context = React.useContext(AppContext);
+  let [boolean, setBoolean] = React.useState(false);
   let campaigns = context.campaigns
   let campaignHearts = context.campaignHearts
   let numDonors = context.numDonors
@@ -120,42 +121,60 @@ function Results(props) {
     }
   }
   
-  console.log(context.scores)
+  let campaignLength = (campaigns.length)/3
+
+  campaigns = campaigns.slice(0,campaignLength)
 
   let resultLength = campaigns.length
-  //console.log(resultLength)
   let plural = "campaigns"
   if (resultLength == 1)
   {
     plural = "campaign"
   }
-if (context.readyToMap == true)
-{
-  console.log(context.readyToMap)
 
-  return (
+  if (boolean == true)
+  {
+    return (
 
-    <bs.Container fluid className="p-0">
-      <div><small><b>Search Results:</b><i> Your search returned {resultLength} {plural} </i></small></div>
-    {/* <bs.Row md="0">
-      {campaigns.map((item) => (
-        <bs.Col md="3">
-          <CampaignCard item={item} />
-        </bs.Col>
-      ))}
-    </bs.Row> */}
-  </bs.Container>
-);
+      <bs.Container fluid className="m-2 mb-3">
+          <bs.Row className="mt-2">
+            <bs.Col sm={4}>
+              <bs.Button variant="success" block>
+                  Search
+              </bs.Button>
+            </bs.Col>
+            <bs.Col sm={8}/>
+        </bs.Row>
+        <div className="my-3"><small><b>Search Results:</b><i> Your search returned {resultLength} {plural} </i></small></div>
+      <bs.Row md="0">
+        {campaigns.map((item) => (
+          <bs.Col md="3">
+            <CampaignCard item={item} />
+          </bs.Col>
+        ))}
+      </bs.Row> 
+    </bs.Container>
+  );
 
-}
-else
-{
-  console.log('else')
-  return(
-    <div>Enter some search Parameters</div>
-  )
-}
-  
+  }
+  else
+  {
+    console.log(boolean)
+    return(
+      <bs.Container fluid className="m-2 mb-3">
+         <bs.Row>
+            <bs.Col sm={4}>
+              <bs.Button variant="success" block onClick={e=>{setBoolean(true)}}>
+                  Search
+              </bs.Button>
+            </bs.Col>
+            <bs.Col sm={8}/>
+        </bs.Row>
+      </bs.Container>
+
+    )
+  }
+    
 }
 
 export default Results;

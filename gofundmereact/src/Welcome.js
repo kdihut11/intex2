@@ -84,14 +84,14 @@ function Welcome(props) {
 //                       className="p-2"
 //                     />
 //                   </td>
-//                   {/* <td className='p-2'>
+//                   <td className='p-2'>
 //                     <FacebookLogin
 //                       appId="2498350440413934"
 //                       autoLoad={true}
 //                       fields="name,email,picture"
 //                       callback={responseFacebook}
 //                     />
-//                   </td>  */}
+//                   </td> 
 //                 </tr>
 //               </table>
 //             </div>
@@ -102,5 +102,5 @@ function Welcome(props) {
 //   } else {
     return <App />;
   }
-// }
+//  }
 export default Welcome;

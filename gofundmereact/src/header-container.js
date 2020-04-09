@@ -25,11 +25,11 @@ function HeaderContainer(props) {
                     <Link to="/predict" className="nav-link nav-link-ltr" style={{color:"#f8f9fb"}}>Predict</Link>
                 </bs.Nav>
                 <bs.Nav style={{color:"#f8f9fb"}}>
-                    <bs.NavDropdown style={{color:"#f8f9fb"}} title="Welcome, Guest" alignRight >
+                    {/* <bs.NavDropdown style={{color:"#f8f9fb"}} title="Sign Out" alignRight >
                         <bs.NavDropdown.Item >My Account</bs.NavDropdown.Item>
                         <bs.NavDropdown.Divider />
                         <bs.NavDropdown.Item href="#action/3.4">Logout</bs.NavDropdown.Item>
-                    </bs.NavDropdown>
+                    </bs.NavDropdown> */}
                 </bs.Nav>
             </bs.Navbar.Collapse>
         </bs.Navbar>

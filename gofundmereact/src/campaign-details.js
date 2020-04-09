@@ -8,7 +8,7 @@ function CampaignDetails(props) {
   const context = React.useContext(AppContext);
   const campaigns = context.campaigns;
   const scores = context.scores;
-
+  let scoreColor = 'red'
   console.log(scores);
 
   let campaign = campaigns.find((campaign) => {
@@ -19,11 +19,21 @@ function CampaignDetails(props) {
     return score.campaign_id == match.params.campaignID;
   });
 
-  console.log(score);
+
+  console.log("Score: ", score);
   console.log(campaign);
 
   if (!campaign) {
     return <h3 className="p-5 align-center">Loading campaign...</h3>;
+  }
+
+  if(score){
+    if(score.rating === "Excellent"){
+      scoreColor = 'green'
+    }
+    if(score.rating === "Good"){
+      scoreColor = 'orange'
+    }
   }
 
   let city = campaign.location_city
@@ -132,7 +142,7 @@ function CampaignDetails(props) {
                   </p>
                   <p>
                     <strong>Quality Score: </strong>
-                    <a style={{ color: "red" }}>{score.score}</a>
+                    <a style={{ color: scoreColor }}>{score.score}</a>
                   </p>
                 </td>
                 <td>
@@ -157,7 +167,7 @@ function CampaignDetails(props) {
                   </p>
                   <p >
                     <strong>Rating: </strong>
-                    <a style={{ color: "red" }}>{score.rating}</a>
+                    <a style={{ color: scoreColor }}>{score.rating}</a>
                   </p>
                 </td>
               </tr>

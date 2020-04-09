@@ -67,11 +67,12 @@ function Results(props) {
                 if(item.title.includes(title))
                   {
                     return item;
-                  }        
+                  }    
+                return ''    
             }
           )
         }
-    if(description != '')
+    if(description !== '')
     {
       campaigns = campaigns.filter(item =>
         {
@@ -79,29 +80,33 @@ function Results(props) {
               {
                 console.log(item.goal)
                 return item;
-              }        
+              } 
+              return ''      
         }
       )
     }
-    if(firstName != '')
+    if(firstName !== '')
     {
       campaigns = campaigns.filter(item =>
         {
             if(item.user_first_name.includes(firstName))
               {
                 return item;
-              }        
+              }    
+            return ''   
         }
+        
       )
     }
-    if(lastName != '')
+    if(lastName !== '')
     {
       campaigns = campaigns.filter(item =>
         {
             if(item.user_last_name.includes(lastName))
               {
                 return item;
-              }        
+              }
+            return ''        
         }
       )
     }
@@ -112,7 +117,8 @@ function Results(props) {
             if(item.is_charity === true)
               {
                 return item;
-              }     
+              }  
+            return ''   
         }
       )
     }
@@ -123,7 +129,8 @@ function Results(props) {
             if(item.is_charity === false)
               {
                 return item;
-              }     
+              } 
+            return ''    
         }
       )
     }
@@ -134,7 +141,8 @@ function Results(props) {
             if(item.campaign_hearts >= campaignHearts)
               {
                 return item;
-              }        
+              }   
+            return ''     
         }
       )
     }
@@ -145,7 +153,8 @@ function Results(props) {
             if(item.donators >= numDonors)
               {
                 return item;              
-              }        
+              }   
+            return ''     
         }
       )
     }
@@ -187,12 +196,12 @@ function Results(props) {
 
   let resultLength = campaigns.length
   let plural = "campaigns"
-  if (resultLength == 1)
+  if (resultLength === 1)
   {
     plural = "campaign"
   }
 
-  if (boolean == true)
+  if (boolean === true)
   {
     return (
 

@@ -1,29 +1,39 @@
 import React from "react";
-import { useParams, useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import AppContext from "./context";
-import { Button } from "react-bootstrap";
+//import { Button } from "react-bootstrap";
 
 function CampaignDetails(props) {
   const match = useRouteMatch("/CampaignDetails/:campaignID");
   const context = React.useContext(AppContext);
   const campaigns = context.campaigns;
   const scores = context.scores;
-
+  let scoreColor = 'red'
   console.log(scores);
 
   let campaign = campaigns.find((campaign) => {
-    return campaign.campaign_id == match.params.campaignID;
+    return campaign.campaign_id === match.params.campaignID;
   });
 
   let score = scores.find((score) => {
-    return score.campaign_id == match.params.campaignID;
+    return score.campaign_id === match.params.campaignID;
   });
 
-  console.log(score);
+
+  console.log("Score: ", score);
   console.log(campaign);
 
   if (!campaign) {
     return <h3 className="p-5 align-center">Loading campaign...</h3>;
+  }
+
+  if(score){
+    if(score.rating === "Excellent"){
+      scoreColor = 'green'
+    }
+    if(score.rating === "Good"){
+      scoreColor = 'orange'
+    }
   }
 
   let city = campaign.location_city
@@ -40,11 +50,11 @@ function CampaignDetails(props) {
 
   let charity = campaign.is_charity
   
-  if (campaign.is_charity == false)
+  if (campaign.is_charity === false)
   {
       charity = 'No'
   }
-  else if (campaign.is_charity == true)
+  else if (campaign.is_charity === true)
   {
       charity = 'Yes'
   }
@@ -55,11 +65,11 @@ function CampaignDetails(props) {
 
   let visible = campaign.visible_in_search
   
-  if (campaign.visible_in_search == false)
+  if (campaign.visible_in_search === false)
   {
     visible = 'No'
   }
-  else if (campaign.visible_in_search == true)
+  else if (campaign.visible_in_search === true)
   {
     visible = 'Yes'
   }
@@ -132,7 +142,7 @@ function CampaignDetails(props) {
                   </p>
                   <p>
                     <strong>Quality Score: </strong>
-                    <a style={{ color: "red" }}>{score.score}</a>
+                    <a style={{ color: scoreColor }}>{score.score}</a>
                   </p>
                 </td>
                 <td>
@@ -157,7 +167,7 @@ function CampaignDetails(props) {
                   </p>
                   <p >
                     <strong>Rating: </strong>
-                    <a style={{ color: "red" }}>{score.rating}</a>
+                    <a style={{ color: scoreColor }}>{score.rating}</a>
                   </p>
                 </td>
               </tr>

@@ -1,8 +1,8 @@
 import React from "react";
 import * as bs from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import CampaignCard from "./campaign-card.js";
-import AppContext from "./context.js";
+// import CampaignCard from "./campaign-card.js";
+// import AppContext from "./context.js";
 
 function Home(props) {
 

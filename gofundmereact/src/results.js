@@ -189,6 +189,7 @@ function Results(props) {
       console.log('no sorting',campaigns)
       sortedBy = '(no sorting)'
     }
+    boolean = true
   }
 
   let resultLength = campaigns.length

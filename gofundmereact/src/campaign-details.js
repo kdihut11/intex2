@@ -7,18 +7,69 @@ function CampaignDetails(props) {
   const match = useRouteMatch("/CampaignDetails/:campaignID");
   const context = React.useContext(AppContext);
   const campaigns = context.campaigns;
+  const scores = context.scores;
 
-  console.log(match);
+  console.log(scores);
 
   let campaign = campaigns.find((campaign) => {
     return campaign.campaign_id == match.params.campaignID;
   });
 
-  //console.log(campaign);
+  let score = scores.find((score) => {
+    return score.campaign_id == match.params.campaignID;
+  });
+
+  console.log(score);
+  console.log(campaign);
 
   if (!campaign) {
-    return <h1 className="p-5 align-center">Error - campaign not found</h1>;
+    return <h3 className="p-5 align-center">Loading campaign...</h3>;
   }
+
+  let city = campaign.location_city
+  if (!campaign.location_city)
+  {
+      city = 'Not Listed'
+  }
+
+  let country = campaign.location_country
+  if (!campaign.location_country)
+  {
+      country = 'Not Listed'
+  }
+
+  let charity = campaign.is_charity
+  
+  if (campaign.is_charity == false)
+  {
+      charity = 'No'
+  }
+  else if (campaign.is_charity == true)
+  {
+      charity = 'Yes'
+  }
+  else if (!campaign.is_charity)
+  {
+      charity = 'Not Listed'
+  }
+
+  let visible = campaign.visible_in_search
+  
+  if (campaign.visible_in_search == false)
+  {
+    visible = 'No'
+  }
+  else if (campaign.visible_in_search == true)
+  {
+    visible = 'Yes'
+  }
+  else if (!campaign.visible_in_search)
+  {
+    visible = 'Not Listed'
+  }
+
+  console.log(campaign.is_charity)
+
 
   //   let charity = ''
   //   if (campaign.is_charity == false)
@@ -45,9 +96,6 @@ function CampaignDetails(props) {
                 <td>
                   <h1 className="ml-4">{campaign.title}</h1>
                 </td>
-                <td>
-                <h2>{context.scores}</h2>
-                </td>
               </tr>
             </tbody>
           </table>
@@ -72,15 +120,19 @@ function CampaignDetails(props) {
                   </p>
                   <p>
                     <strong>City: </strong>
-                    {campaign.location_city}
+                    {city}
                   </p>
                   <p>
                     <strong>Country: </strong>
-                    {campaign.location_country}
+                    {country}
                   </p>
-                  <p style={{ color: "red" }}>
-                    <strong>Charity Campaign: </strong>
-                    {campaign.is_charity}
+                  <p>
+                    <strong>Visible in Search? </strong>
+                    {visible}
+                  </p>
+                  <p>
+                    <strong>Quality Score: </strong>
+                    <a style={{ color: "red" }}>{score.score}</a>
                   </p>
                 </td>
                 <td>
@@ -99,9 +151,13 @@ function CampaignDetails(props) {
                     <strong>Social Media Shares: </strong>
                     {campaign.social_share_total}
                   </p>
-                  <p style={{ color: "red" }}>
-                    <strong>Visible in Search: </strong>
-                    {campaign.visible_in_search}
+                  <p>
+                    <strong>For Charity? </strong>
+                    {charity}
+                  </p>
+                  <p >
+                    <strong>Rating: </strong>
+                    <a style={{ color: "red" }}>{score.rating}</a>
                   </p>
                 </td>
               </tr>
@@ -121,11 +177,11 @@ function CampaignDetails(props) {
               </tr>
             </tbody>
           </table>
-          <table align='center'>
+          <table align="center">
             <tbody>
               <tr>
-                <td className='mb-5'>
-                  <a href={campaign.url} class="btn btn-primary">
+                <td >
+                  <a href={campaign.url} className="btn btn-primary m-4">
                     See on GoFundMe.com
                   </a>
                 </td>

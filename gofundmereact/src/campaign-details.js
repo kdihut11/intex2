@@ -79,37 +79,31 @@ function CampaignDetails(props) {
     visible = 'Not Listed'
   }
 
-  console.log(campaign.is_charity)
-
-
-  //   let charity = ''
-  //   if (campaign.is_charity == false)
-  //   {
-  //     let charity = 'No'
-  //   }
-  //   else if (campaign.is_charity == true)
-  //   {
-  //     let charity = 'Yes'
-  //   }
+  let active = campaign.deactivated
+  if (campaign.deactivated === false)
+  {
+    active = 'Yes'
+  }
+  else if (campaign.deactivated === true)
+  {
+    active = 'No'
+  }
+  else if (!campaign.deactivated)
+  {
+    active = 'Not Listed'
+  }
+  console.log(campaign.category)
 
   return (
     <div>
       <div className="card mt-5 mb-5">
         <div className="card-header">
           <ul className="nav nav-pills card-header-pills">
-            <li className="nav-item nav-link">Campaign Details</li>
+            <h3 className='p-3'>{campaign.title}</h3>
           </ul>
         </div>
         <div className="card-body" id="description">
-          <table className="text-center">
-            <tbody>
-              <tr>
-                <td>
-                  <h1 className="ml-4">{campaign.title}</h1>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          
           <table>
             <tbody>
               <tr>
@@ -126,9 +120,14 @@ function CampaignDetails(props) {
                     {campaign.user_last_name}
                   </p>
                   <p>
+                    <strong>Active: </strong>
+                    {active}
+                  </p>
+                  <p>
                     <strong>Days Active: </strong>
                     {campaign.days_active}
                   </p>
+
                   <p>
                     <strong>City: </strong>
                     {city}
@@ -149,6 +148,9 @@ function CampaignDetails(props) {
                 <td>
                   <p>
                     <strong>Current Amount: </strong>${campaign.current_amount}
+                  </p>
+                  <p>
+                    <strong>Goal: </strong>${campaign.category}
                   </p>
                   <p>
                     <strong>Donators: </strong>
@@ -192,8 +194,8 @@ function CampaignDetails(props) {
             <tbody>
               <tr>
                 <td >
-                <Link to="/search" className="float-left btn btn-primary m-4">Return to Search</Link>
-                  <a href={campaign.url} target="blank" className="btn btn-primary m-4">
+                <Link to="/search" className="float-left btn btn-success m-4" style={{height: '40px', width:'200px'}}>Return to Search</Link>
+                  <a href={campaign.url} className="btn btn-primary m-4" style={{height: '40px', width:'200px'}}>
                     See on GoFundMe.com
                   </a>
                 </td>

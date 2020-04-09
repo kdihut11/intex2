@@ -8,6 +8,13 @@ function Results(props) {
   const context = React.useContext(AppContext);
   let [boolean, setBoolean] = React.useState(false);
   let campaigns = context.campaigns
+  let sortedDateCampaigns = []
+  let sortedCurrentAmtCampaigns = []
+  let sortedGoalCampaigns = []
+  let ratingCampaigns = []
+  let myGoal = 0
+  let sortedBy =''
+  let scores = context.scores
   let campaignHearts = context.campaignHearts
   let numDonors = context.numDonors
   let isCharity = context.isCharity
@@ -15,21 +22,44 @@ function Results(props) {
   let description = context.description
   let firstName = context.firstName
   let lastName = context.lastName
-  //const match = useRouteMatch('/campaign/:campaign_id')
+  let rating = context.rating
+  let goal = context.goal
 
-  //console.log( title, description,firstName,lastName, isCharity, campaignHearts, numDonors)
-  const sortedDateCampaigns = campaigns.slice().sort((a, b) => a.launch_date - b.launch_date).reverse()
-  const sortedCurrentAmtCampaigns = campaigns.slice().sort((a,b) => b.current_amount - a.current_amount)
-  const sortedGoalCampaigns = campaigns.slice().sort((a,b) => b.goal - a.goal)
-
-  // console.log('currentAmtSorted',sortedCurrentAmtCampaigns)
-  // console.log('dateSorted',sortedDateCampaigns)
-  // console.log('goalSorted', sortedGoalCampaigns)
-
+  const match = useRouteMatch('/search/sort/:label')
   
-  if(title || description || firstName || lastName || isCharity || campaignHearts > -2  || numDonors > -2 )
+  if(title || description || firstName || lastName || isCharity || campaignHearts > -2  || numDonors > -2 || rating || goal)
   {
-   
+    if(rating != '' || rating == 'Select...')
+    {
+      scores = scores.filter(item =>
+        {
+            if(item.rating == rating)
+              {               
+                let campaign = campaigns.find((camp) => {
+                  return camp.campaign_id == item.campaign_id
+                })
+                ratingCampaigns.push(campaign)
+                return campaign;
+
+              }        
+        }
+      )
+      campaigns = ratingCampaigns
+    }
+
+    if(goal != -1)
+    {
+      campaigns = campaigns.filter(item =>
+        {     
+            myGoal = parseInt(item.category)
+            if(myGoal >= goal)
+              {
+                return item;
+              }        
+        }
+      )
+    }
+
     if(title != '')
         {
           campaigns = campaigns.filter(item =>
@@ -120,10 +150,40 @@ function Results(props) {
       )
     }
   }
-  
-  let campaignLength = (campaigns.length)/3
 
+  let campaignLength = (campaigns.length)/3
   campaigns = campaigns.slice(0,campaignLength)
+
+  console.log('no sorting',campaigns)
+
+  if(match)
+  {
+    if (match.params.label == 'date')
+    {
+      campaigns = campaigns.slice().sort((a, b) => a.launch_date - b.launch_date).reverse()
+      console.log('sorted by date',campaigns)
+      sortedBy = '(sorted by date: most to least recent)'
+    }
+    else if(match.params.label == 'currentAmount')
+    {
+      campaigns = campaigns.slice().sort((a,b) => b.current_amount - a.current_amount)
+      console.log('sorted by amount',campaigns)
+      sortedBy = '(sorted by current amount: highest --> lowest)'
+    }
+    else if(match.params.label == 'goal')
+    {
+      console.log('goal sort')
+      campaigns = campaigns.slice().sort((a,b) => b.category - a.category)
+      console.log('sorted by goal',campaigns)
+      sortedBy = '(sorted by goal: highest --> lowest)'
+    }
+    else if(match.params.label == 'nosort')
+    {
+      campaigns = campaigns
+      console.log('no sorting',campaigns)
+      sortedBy = '(no sorting)'
+    }
+  }
 
   let resultLength = campaigns.length
   let plural = "campaigns"
@@ -145,7 +205,7 @@ function Results(props) {
             </bs.Col>
             <bs.Col sm={8}/>
         </bs.Row>
-        <div className="my-3"><small><b>Search Results:</b><i> Your search returned {resultLength} {plural} </i></small></div>
+    <div className="my-3"><small><b>Search Results:</b><i> Your search returned {resultLength} {plural} {sortedBy}</i></small></div>
       <bs.Row md="0">
         {campaigns.map((item) => (
           <bs.Col md="3">
@@ -159,12 +219,11 @@ function Results(props) {
   }
   else
   {
-    console.log(boolean)
     return(
       <bs.Container fluid className="m-2 mb-3">
          <bs.Row>
             <bs.Col sm={4}>
-              <bs.Button variant="success" block onClick={e=>{setBoolean(true)}}>
+              <bs.Button className="mb-5" variant="success" block onClick={e=>{setBoolean(true)}}>
                   Search
               </bs.Button>
             </bs.Col>

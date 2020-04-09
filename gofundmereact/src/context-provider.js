@@ -18,10 +18,12 @@ export default class AppProvider extends React.Component {
       updateLastName: this.updateLastName,
       setReadyToMapTrue: this.setReadyToMapTrue,
       setReadyToMapFalse: this.setReadyToMapFalse,
+      updateRating: this.updateRating,
+      updateGoal: this.updateGoal,
     };
     this.state = {
       campaigns: [],
-      donations: [],
+      scores: [],
       campaignHearts:-1,
       numDonors:-1,
       isCharity:'',
@@ -30,7 +32,8 @@ export default class AppProvider extends React.Component {
       firstName:'',
       lastName:'',
       readyToMap:false,
-      scores: [],
+      rating:'',
+      goal:-1,
     }
   }
 
@@ -63,6 +66,17 @@ export default class AppProvider extends React.Component {
   updateIsNotCharity = () => {
     this.setState({isCharity:false});
     //console.log(this.state.isCharity)
+  }
+
+  updateRating = (value) => {
+    this.setState({rating: value});
+    //console.log(this.state.title)
+  }
+
+  updateGoal = (value) => {
+    value = parseInt(value)
+    this.setState({goal: value});
+    //console.log(this.state.title)
   }
 
   updateTitle = (value) => {

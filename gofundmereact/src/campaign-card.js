@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card,Button} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 export default function CampaignCard(props){ 
@@ -13,7 +13,7 @@ export default function CampaignCard(props){
         title = title + "..."
     } 
 
-    if (item.campaign_image_url == "")
+    if (item.campaign_image_url === "")
     {
         image_url = "/media/no_image.jpeg"
     }

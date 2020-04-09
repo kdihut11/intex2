@@ -1,7 +1,7 @@
 import React from "react";
-import { useParams, useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import AppContext from "./context";
-import { Button } from "react-bootstrap";
+//import { Button } from "react-bootstrap";
 
 function CampaignDetails(props) {
   const match = useRouteMatch("/CampaignDetails/:campaignID");
@@ -12,11 +12,11 @@ function CampaignDetails(props) {
   console.log(scores);
 
   let campaign = campaigns.find((campaign) => {
-    return campaign.campaign_id == match.params.campaignID;
+    return campaign.campaign_id === match.params.campaignID;
   });
 
   let score = scores.find((score) => {
-    return score.campaign_id == match.params.campaignID;
+    return score.campaign_id === match.params.campaignID;
   });
 
 
@@ -50,11 +50,11 @@ function CampaignDetails(props) {
 
   let charity = campaign.is_charity
   
-  if (campaign.is_charity == false)
+  if (campaign.is_charity === false)
   {
       charity = 'No'
   }
-  else if (campaign.is_charity == true)
+  else if (campaign.is_charity === true)
   {
       charity = 'Yes'
   }
@@ -65,11 +65,11 @@ function CampaignDetails(props) {
 
   let visible = campaign.visible_in_search
   
-  if (campaign.visible_in_search == false)
+  if (campaign.visible_in_search === false)
   {
     visible = 'No'
   }
-  else if (campaign.visible_in_search == true)
+  else if (campaign.visible_in_search === true)
   {
     visible = 'Yes'
   }

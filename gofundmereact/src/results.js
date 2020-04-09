@@ -1,6 +1,6 @@
 import React from "react";
 import * as bs from "react-bootstrap";
-import { useRouteMatch } from "react-router-dom";
+//import { useRouteMatch } from "react-router-dom";
 import CampaignCard from "./campaign-card.js";
 import AppContext from "./context.js";
 
@@ -18,9 +18,9 @@ function Results(props) {
   //const match = useRouteMatch('/campaign/:campaign_id')
 
   //console.log( title, description,firstName,lastName, isCharity, campaignHearts, numDonors)
-  const sortedDateCampaigns = campaigns.slice().sort((a, b) => a.launch_date - b.launch_date).reverse()
-  const sortedCurrentAmtCampaigns = campaigns.slice().sort((a,b) => b.current_amount - a.current_amount)
-  const sortedGoalCampaigns = campaigns.slice().sort((a,b) => b.goal - a.goal)
+  // const sortedDateCampaigns = campaigns.slice().sort((a, b) => a.launch_date - b.launch_date).reverse()
+  // const sortedCurrentAmtCampaigns = campaigns.slice().sort((a,b) => b.current_amount - a.current_amount)
+  // const sortedGoalCampaigns = campaigns.slice().sort((a,b) => b.goal - a.goal)
 
   // console.log('currentAmtSorted',sortedCurrentAmtCampaigns)
   // console.log('dateSorted',sortedDateCampaigns)
@@ -30,18 +30,19 @@ function Results(props) {
   if(title || description || firstName || lastName || isCharity || campaignHearts > -2  || numDonors > -2 )
   {
    
-    if(title != '')
+    if(title !== '')
         {
           campaigns = campaigns.filter(item =>
             {
                 if(item.title.includes(title))
                   {
                     return item;
-                  }        
+                  }    
+                return ''    
             }
           )
         }
-    if(description != '')
+    if(description !== '')
     {
       campaigns = campaigns.filter(item =>
         {
@@ -49,29 +50,33 @@ function Results(props) {
               {
                 console.log(item.goal)
                 return item;
-              }        
+              } 
+              return ''      
         }
       )
     }
-    if(firstName != '')
+    if(firstName !== '')
     {
       campaigns = campaigns.filter(item =>
         {
             if(item.user_first_name.includes(firstName))
               {
                 return item;
-              }        
+              }    
+            return ''   
         }
+        
       )
     }
-    if(lastName != '')
+    if(lastName !== '')
     {
       campaigns = campaigns.filter(item =>
         {
             if(item.user_last_name.includes(lastName))
               {
                 return item;
-              }        
+              }
+            return ''        
         }
       )
     }
@@ -82,7 +87,8 @@ function Results(props) {
             if(item.is_charity === true)
               {
                 return item;
-              }     
+              }  
+            return ''   
         }
       )
     }
@@ -93,7 +99,8 @@ function Results(props) {
             if(item.is_charity === false)
               {
                 return item;
-              }     
+              } 
+            return ''    
         }
       )
     }
@@ -104,7 +111,8 @@ function Results(props) {
             if(item.campaign_hearts >= campaignHearts)
               {
                 return item;
-              }        
+              }   
+            return ''     
         }
       )
     }
@@ -115,7 +123,8 @@ function Results(props) {
             if(item.donators >= numDonors)
               {
                 return item;              
-              }        
+              }   
+            return ''     
         }
       )
     }
@@ -127,12 +136,12 @@ function Results(props) {
 
   let resultLength = campaigns.length
   let plural = "campaigns"
-  if (resultLength == 1)
+  if (resultLength === 1)
   {
     plural = "campaign"
   }
 
-  if (boolean == true)
+  if (boolean === true)
   {
     return (
 

@@ -1,50 +1,51 @@
-import React, { useState } from "react";
-import * as b from "bootstrap";
-import GoogleLogin from "react-google-login";
-import FacebookLogin from "react-facebook-login";
+//import React, { useState } from "react";
+import React from 'react'
+//import * as b from "bootstrap";
+//import GoogleLogin from "react-google-login";
+//import FacebookLogin from "react-facebook-login";
 import App from "./App.js";
-import goFundMe from "./goFundMe.png";
-import background from "./background.jpeg";
+//import goFundMe from "./goFundMe.png";
+//import background from "./background.jpeg";
 
 function Welcome(props) {
-  var sectionStyle = {
-    width: "100%",
-    height: "100%",
-    backgroundImage: `url(${background})`,
-    position: "absolute",
-  };
+  // var sectionStyle = {
+  //   width: "100%",
+  //   height: "100%",
+  //   backgroundImage: `url(${background})`,
+  //   position: "absolute",
+  // };
 
-  var overlay = {
-    height: "100%",
-    position: "absolute",
-    left: 0,
-    top: 0,
-    opacity: 0.5,
-    backgroundColor: "black",
-    width: "100%",
-  };
+  // var overlay = {
+  //   height: "100%",
+  //   position: "absolute",
+  //   left: 0,
+  //   top: 0,
+  //   opacity: 0.5,
+  //   backgroundColor: "black",
+  //   width: "100%",
+  // };
 
-  const responseGoogle = (response) => {
-    console.log(response);
-    setName(response.profileObj.name);
-    setEmail(response.profileObj.email);
+  // const responseGoogle = (response) => {
+  //   console.log(response);
+  //   setName(response.profileObj.name);
+  //   setEmail(response.profileObj.email);
     
-  };
+  // };
 
-  const responseFacebook = (response) => {
-    console.log(response);
-    setFName(response.name);
-    setFEmail(response.email);
+  // const responseFacebook = (response) => {
+  //   console.log(response);
+  //   setFName(response.name);
+  //   setFEmail(response.email);
     
-  };
+  // };
 
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
 
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
 
-  const [FName, setFName] = useState("");
+  // const [FName, setFName] = useState("");
 
-  const [FEmail, setFEmail] = useState("");
+  // const [FEmail, setFEmail] = useState("");
 
   
 

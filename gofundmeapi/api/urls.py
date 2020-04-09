@@ -9,4 +9,5 @@ urlpatterns = [
     path('donation/<int:pk>/', views.DonationDetail.as_view()),
     path('score/',views.ScoreList.as_view()),
     path('score/<int:pk>/', views.ScoreDetail.as_view()),
+    path('campaigncreate', views.CreateCampaign.as_view()),
 ]

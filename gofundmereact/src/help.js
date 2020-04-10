@@ -27,10 +27,10 @@ class Help extends Component {
             </bs.Row>
             <bs.Row noGutters>
                 <bs.Col>
-                    <p>
+                    
                     We're here to help and answer any questions you might have. We look forward to hearing from you <span> </span>
-                    <i class="far fa-smile-beam"></i>
-                    </p>
+                    <i className="far fa-smile-beam"></i>
+                    
                 </bs.Col>
             </bs.Row>
             <Form>
@@ -71,8 +71,6 @@ class Help extends Component {
     
       onHandleSubmit(e) {
         e.preventDefault();
-        // const email = this.state.email;
-        // const question = this.state.question
         this.setState({
           email: '',
           question: '',

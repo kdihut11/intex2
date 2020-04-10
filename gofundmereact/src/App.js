@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import HeaderContainer from './header-container';
 import LeftContainer from './left-container.js';
 import FooterContainer from './footer-container.js';
-import SearchBar from './search-bar.js';
+//import SearchBar from './search-bar.js';
 import Home from './home';
 import About from './about';
 import Help from './help';

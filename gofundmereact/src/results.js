@@ -6,12 +6,7 @@ import AppContext from "./context.js";
 
 function Results(props) {
   const context = React.useContext(AppContext);
-  //let [boolean, setBoolean] = React.useState(false);
-  let campaigns = context.campaigns
-  //let ratingCampaigns = []
-  //let myGoal = 0
   let [sortedBy, updateSortedBy] = React.useState('')
-  //let scores = context.scores
   let [campaignHearts, updateCampaignHearts] = React.useState(-1)
   let [numDonors, updateNumDonors] = React.useState(-1)
   let [isCharity, updateIsCharity] = React.useState('')
@@ -108,10 +103,6 @@ function Results(props) {
     }
     updateFilteringDone(true)
   }
-  
-
-  
-
 
   let plural = "campaigns."
   if (resultLength === 1)

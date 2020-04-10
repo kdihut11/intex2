@@ -58,8 +58,7 @@ const CampaignController = props => {
             }}
             onSubmit={async (values, actions) => {
                 setLoading(true)
-                console.log(values)
-                const resp = await axios.post('http://localhost:8000/api/campaigncreate', values)
+                const resp = await axios.post('/api/campaigncreate', values)
                 setNumDonors(resp.data.numdonors)
                 setMoneyString((parseFloat(resp.data.avg_donation).toFixed(2)).toString() + ' ' + values.currencycode)
                 setRating(resp.data.rating)

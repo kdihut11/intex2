@@ -1,7 +1,6 @@
 import React from "react";
 import { useRouteMatch } from "react-router-dom";
 import AppContext from "./context";
-//import { Button } from "react-bootstrap";
 import {Link} from 'react-router-dom';
 
 function CampaignDetails(props) {
@@ -142,7 +141,7 @@ function CampaignDetails(props) {
                   </p>
                   <p>
                     <strong>Quality Score: </strong>
-                    <a style={{ color: scoreColor }}>{score.score}</a>
+                    <b style={{ color: scoreColor }}>{score.score}</b>
                   </p>
                 </td>
                 <td>
@@ -170,7 +169,7 @@ function CampaignDetails(props) {
                   </p>
                   <p >
                     <strong>Rating: </strong>
-                    <a style={{ color: scoreColor }}>{score.rating}</a>
+                    <b style={{ color: scoreColor }}>{score.rating}</b>
                   </p>
                 </td>
               </tr>
@@ -195,7 +194,7 @@ function CampaignDetails(props) {
               <tr>
                 <td >
                 <Link to="/search" className="float-left btn btn-success m-4" style={{height: '40px', width:'200px'}}>Return to Search</Link>
-                  <a href={campaign.url} className="btn btn-primary m-4" style={{height: '40px', width:'200px'}}>
+                  <a href={campaign.url} target="blank" className="btn btn-primary m-4" style={{height: '40px', width:'200px'}}>
                     See on GoFundMe.com
                   </a>
                 </td>

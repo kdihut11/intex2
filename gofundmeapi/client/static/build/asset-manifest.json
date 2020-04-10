@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/build/static/css/main.ca2365ae.chunk.css",
+    "main.js": "/static/build/static/js/main.ddd0e9d4.chunk.js",
+    "main.js.map": "/static/build/static/js/main.ddd0e9d4.chunk.js.map",
+    "runtime-main.js": "/static/build/static/js/runtime-main.d3c21c7b.js",
+    "runtime-main.js.map": "/static/build/static/js/runtime-main.d3c21c7b.js.map",
+    "static/css/2.16098711.chunk.css": "/static/build/static/css/2.16098711.chunk.css",
+    "static/js/2.dd1e1f27.chunk.js": "/static/build/static/js/2.dd1e1f27.chunk.js",
+    "static/js/2.dd1e1f27.chunk.js.map": "/static/build/static/js/2.dd1e1f27.chunk.js.map",
+    "index.html": "/static/build/index.html",
+    "precache-manifest.8f6152e060555c074559d2ab804c3f71.js": "/static/build/precache-manifest.8f6152e060555c074559d2ab804c3f71.js",
+    "service-worker.js": "/static/build/service-worker.js",
+    "static/css/2.16098711.chunk.css.map": "/static/build/static/css/2.16098711.chunk.css.map",
+    "static/css/main.ca2365ae.chunk.css.map": "/static/build/static/css/main.ca2365ae.chunk.css.map",
+    "static/js/2.dd1e1f27.chunk.js.LICENSE.txt": "/static/build/static/js/2.dd1e1f27.chunk.js.LICENSE.txt",
+    "static/media/background.jpeg": "/static/build/static/media/background.90397272.jpeg",
+    "static/media/all.css": "/static/build/static/media/fa-solid-900.ec763292.svg",
+    "static/media/goFundMe.png": "/static/build/static/media/goFundMe.038b0ab4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d3c21c7b.js",
+    "static/css/2.16098711.chunk.css",
+    "static/js/2.dd1e1f27.chunk.js",
+    "static/css/main.ca2365ae.chunk.css",
+    "static/js/main.ddd0e9d4.chunk.js"
+  ]
+}

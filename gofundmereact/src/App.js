@@ -45,11 +45,7 @@ function App(props) {
                 </Route>
 
                 <Route path="/search">
-                  <bs.Row>
-                    <bs.Col>
-                    <SearchBar />
-                    </bs.Col>
-                  </bs.Row>
+
                   <bs.Row>
                     <bs.Col>
                       <Results/>

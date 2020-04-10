@@ -8,18 +8,18 @@ export default class AppProvider extends React.Component {
   constructor(props) {
     super(props);
     this.actions = {
-      updateCampaignHearts: this.updateCampaignHearts,
-      updateNumDonors: this.updateNumDonors,
-      updateIsCharity: this.updateIsCharity,
-      updateIsNotCharity: this.updateIsNotCharity,
-      updateTitle: this.updateTitle,
-      updateDescription: this.updateDescription,
-      updateFirstName: this.updateFirstName,
-      updateLastName: this.updateLastName,
+      // updateCampaignHearts: this.updateCampaignHearts,
+      // updateNumDonors: this.updateNumDonors,
+      // updateIsCharity: this.updateIsCharity,
+      // updateIsNotCharity: this.updateIsNotCharity,
+      // updateTitle: this.updateTitle,
+      // updateDescription: this.updateDescription,
+      // updateFirstName: this.updateFirstName,
+      // updateLastName: this.updateLastName,
       setReadyToMapTrue: this.setReadyToMapTrue,
       setReadyToMapFalse: this.setReadyToMapFalse,
-      updateRating: this.updateRating,
-      updateGoal: this.updateGoal,
+      // updateRating: this.updateRating,
+      // updateGoal: this.updateGoal,
     };
     this.state = {
       campaigns: [],
@@ -45,59 +45,59 @@ export default class AppProvider extends React.Component {
     this.setState({readyToMap: false});
   }
 
-  updateCampaignHearts = (value) => {
-    value = parseInt(value)
-    this.setState({campaignHearts: value});
-    //console.log(this.state.campaignHearts)
-  }
+  // updateCampaignHearts = (value) => {
+  //   value = parseInt(value)
+  //   this.setState({campaignHearts: value});
+  //   //console.log(this.state.campaignHearts)
+  // }
 
 
-  updateNumDonors = (value) => {
-    value = parseInt(value)
-    this.setState({numDonors: value});
-    //console.log(this.state.numDonors)
-  }
+  // updateNumDonors = (value) => {
+  //   value = parseInt(value)
+  //   this.setState({numDonors: value});
+  //   //console.log(this.state.numDonors)
+  // }
 
-  updateIsCharity = () => {
-    this.setState({isCharity:true});
-    //console.log(this.state.isCharity)
-  }
+  // updateIsCharity = () => {
+  //   this.setState({isCharity:true});
+  //   //console.log(this.state.isCharity)
+  // }
 
-  updateIsNotCharity = () => {
-    this.setState({isCharity:false});
-    //console.log(this.state.isCharity)
-  }
+  // updateIsNotCharity = () => {
+  //   this.setState({isCharity:false});
+  //   //console.log(this.state.isCharity)
+  // }
 
-  updateRating = (value) => {
-    this.setState({rating: value});
-    //console.log(this.state.title)
-  }
+  // updateRating = (value) => {
+  //   this.setState({rating: value});
+  //   //console.log(this.state.title)
+  // }
 
-  updateGoal = (value) => {
-    value = parseInt(value)
-    this.setState({goal: value});
-    //console.log(this.state.title)
-  }
+  // updateGoal = (value) => {
+  //   value = parseInt(value)
+  //   this.setState({goal: value});
+  //   //console.log(this.state.title)
+  // }
 
-  updateTitle = (value) => {
-    this.setState({title: value});
-    //console.log(this.state.title)
-  }
+  // updateTitle = (value) => {
+  //   this.setState({title: value});
+  //   //console.log(this.state.title)
+  // }
 
-  updateDescription = (value) => {
-    this.setState({description: value});
-    //console.log(this.state.description)
-  }
+  // updateDescription = (value) => {
+  //   this.setState({description: value});
+  //   //console.log(this.state.description)
+  // }
 
-  updateFirstName = (value) => {
-    this.setState({firstName: value});
-    //console.log(this.state.firstName)
-  }
+  // updateFirstName = (value) => {
+  //   this.setState({firstName: value});
+  //   //console.log(this.state.firstName)
+  // }
 
-  updateLastName = (value) => {
-    this.setState({lastName: value});
-    //console.log(this.state.lastName)
-  }
+  // updateLastName = (value) => {
+  //   this.setState({lastName: value});
+  //   //console.log(this.state.lastName)
+  // }
 
   render() {
     return (
@@ -110,9 +110,22 @@ export default class AppProvider extends React.Component {
   async componentDidMount() {
     const resp = await axios.get("http://localhost:8000/api/campaign/");
     const resp2 = await axios.get("http://localhost:8000/api/score/");
+
+    let camps = resp.data.filter(function(value, index, Arr){
+      return index % 3 === 0
+    })
+    camps = camps.filter(item=>
+      {
+        let score = resp2.data.find((score) => {
+          return score.campaign_id === item.campaign_id;
+        });
+        item.days_created = score.rating
+        return item;
+      })
+    console.log('Ready')
     this.setState({
       ...this.state,
-      campaigns: resp.data,
+      campaigns: camps,
       scores: resp2.data,
     });
   }

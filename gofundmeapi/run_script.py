@@ -18,6 +18,7 @@ def main():
         data = json.load(json_file)
     campaigns = data['campaigns']
     for camp in campaigns:
+        #if num % 3 == 0:
         dbcamp = Campaign()
         dbcamp.url = camp['url']
         dbcamp.campaign_id = int(camp['campaign_id'])

@@ -16,6 +16,7 @@ const CampaignController = props => {
     const [numdonors, setNumDonors] = useState('')
     const [hasResults, setHasResults] = useState(false)
     const [moneyString, setMoneyString] = useState('')
+    const [rating, setRating] = useState(0)
 
     return (
         
@@ -57,9 +58,11 @@ const CampaignController = props => {
             }}
             onSubmit={async (values, actions) => {
                 setLoading(true)
+                console.log(values)
                 const resp = await axios.post('http://localhost:8000/api/campaigncreate', values)
                 setNumDonors(resp.data.numdonors)
                 setMoneyString((parseFloat(resp.data.avg_donation).toFixed(2)).toString() + ' ' + values.currencycode)
+                setRating(resp.data.rating)
                 setHasResults(true)
                 setLoading(false)
                 
@@ -70,9 +73,11 @@ const CampaignController = props => {
             <h6 className='text-center mb-3'>Just answer a few questions below to find your campaign's likelihood of success</h6>
             <CampaignForm form={form} loading={loading} />
             {hasResults ? 
+                <>
+                <hr></hr>
                 <bs.Container fluid className="p-3">
                     <bs.Row>
-                    <bs.Col></bs.Col>
+
                         <bs.Col md = '4'>
                             <bs.Card>
                                 <bs.Card.Header style={{textAlign: 'center'}}><b>Number of Donors</b></bs.Card.Header>
@@ -89,10 +94,27 @@ const CampaignController = props => {
                                 </bs.Card.Body>
                             </bs.Card>
                         </bs.Col>
+                        <bs.Col md = '4'>
+                            <bs.Card>
+                                <bs.Card.Header style={{textAlign: 'center'}}><b>Rating</b></bs.Card.Header>
+                                <bs.Card.Body>
+                                    <bs.Card.Text style={{textAlign: 'center'}}>{rating}</bs.Card.Text>
+                                </bs.Card.Body>
+                            </bs.Card>
+                        </bs.Col>
+                    </bs.Row>
+                </bs.Container>
+                </>
+                : null }
+                <hr></hr>
+                <bs.Container fluid className="p-3">
+                    <bs.Row  style={{marginBottom: 10}}>
+                        <bs.Col></bs.Col>
+                        <bs.Col md = '8'><bs.Form.Label>In general, the more people see your campaign and the more established your media platform, the higher your campaign will be rated! </bs.Form.Label></bs.Col>
                         <bs.Col></bs.Col>
                     </bs.Row>
                 </bs.Container>
-                : null }</>
+            </>
         )}</Formik> 
     )
 }
@@ -154,7 +176,7 @@ const CampaignForm = props => (
 
                     <br></br><Input title="Fundraising Goal:" name="goal" type="number" />
                     <bs.Button variant="warning" className="mt-2 mb-1" type='submit' disabled={props.loading}> {props.loading  && <bs.Spinner animation="grow" variant="light" size="sm" />} Submit </bs.Button>
-                    <hr></hr>
+                    
                 </bs.Col>
                 <bs.Col></bs.Col>
             </bs.Row>

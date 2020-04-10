@@ -129,6 +129,40 @@ class CreateCampaign(APIView):
         import urllib
         import json 
         body = json.loads(request.body)
+
+
+        # Get Rating
+        score = 0
+        if body['media_type'] == "0":
+            score = score + 35
+        if body['media_type'] == "1":
+            score = score + 50
+        if body['media_type'] == "2":
+            score = score + 25
+        if body['media_type'] == "3":
+            score = score + 20
+        if body['visible_in_search'] == "True":
+            score = score + 15
+        if body['visible_in_search'] == "False":
+            score = score + 7
+        if body['currencycode'] == 'EUR':
+            score = score + 15
+        if not body['currencycode'] == 'EUR':
+            score = score + 7
+        if body['auto_fb_post_mode'] == "True":
+            score = score + 10
+        if body['auto_fb_post_mode'] == "False":
+            score = score + 8
+        if body['is_charity'] == "True":
+            score = score + 10
+        if body['is_charity'] == "False":
+            score = score + 8
+        if 50 <= score <= 69:
+            rating = 'Poor'
+        if 70 <= score <= 89:
+            rating = 'Good'
+        if 90 <= score <= 100:
+            rating = 'Excellent'
         
         #formatting the data into a data object for the API call
         data =  {
@@ -195,5 +229,6 @@ class CreateCampaign(APIView):
         return Response({
             'avg_donation': result,
             'numdonors': result2,
+            'rating': rating,
         })
 

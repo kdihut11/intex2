@@ -19,7 +19,6 @@ export default function CampaignCard(props){
         image_url = "/media/no_image.jpeg"
     }
 
-
     if(item.days_created === "Excellent"){
         scoreColor = 'green'
     }
@@ -50,11 +49,6 @@ export default function CampaignCard(props){
                     <Card.Text className="px-2 py-0 m-0" style={{fontSize:"13px"}}><b>Rating:</b> <span style={{color:scoreColor}}>{item.days_created}</span></Card.Text>
                     <Card.Text className="px-2 py-0 m-0" style={{fontSize:"13px"}}><b>Current Amount:</b> ${item.current_amount}</Card.Text>
                     <Card.Text className="px-2 py-0 m-0" style={{fontSize:"13px"}}><b>Goal Amount:</b> ${item.category}</Card.Text>
-                    {/* <Link to={'/CampaignDetails/' + item.campaign_id}>
-                        <Card.Footer style={{backgroundColor:"#6c757d",height:"5px",textAlign:"center"}}>
-                            <span style={{color:"#f8f9fb"}}>More Details</span>
-                        </Card.Footer>
-                    </Link> */}
                     <Card.Text className="pt-1" style={{textAlign:"center", color:"#001540"}}>
                         <Link to={'/CampaignDetails/' + item.campaign_id} ><small className="text-muted"><b>More Details</b></small></Link>
                     </Card.Text>

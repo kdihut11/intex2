@@ -180,7 +180,7 @@ class CreateCampaign(APIView):
         # the API call
         body = str.encode(json.dumps(data))
         url = 'https://ussouthcentral.services.azureml.net/workspaces/8d7b88d4f64c47da88e35e4c3d3920aa/services/004dcd97f484426f8b0021098da53476/execute?api-version=2.0&details=true'
-        api_key = 'bqXVB19YmqZpCxwTsMHPfWwvpHsHaCMLKI8tH61NgDsktawRrI/pYYt9cX4MYEx+dAhPi4HJbMK82eXMBQnb9A=='
+        api_key = 'REDACTED'
 
         headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
